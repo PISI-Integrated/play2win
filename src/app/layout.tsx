@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/global/Navbar";
+import Footer from "@/components/global/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +27,11 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<div className="w-full h-screen gradient font-NunitoSans px-[20px] xl:px-[60px]">
+					<div className="w-full h-auto gradient font-NunitoSans px-[20px] xl:px-[60px]">
 						<Navbar />
 						{children}
 					</div>
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>

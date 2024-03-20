@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
 			<div className="col-span-3">
 				<div className="flex flex-col gap-4">
 					<div className="w-full  flex justify-between items-center md:items-start">
@@ -27,8 +27,8 @@ export default function Home() {
 					</p>
 				</div>
 			</div>
-			<div className="flex items-center gap-4 px-4 xl:p-0 xl:justify-between col-span-3 overflow-x-auto">
-				<div className="col-span-1">
+			<div className="w-full flex items-center gap-4 md:gap-0 md:justify-between  xl:p-0 xl:justify-between col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
+				<div className="col-span-1 ">
 					<GameCard />
 				</div>
 				<div className="col-span-1">
@@ -38,8 +38,6 @@ export default function Home() {
 					<GameCard />
 				</div>
 			</div>
-			<div>03</div>
-			<div>09</div>
 		</main>
 	);
 }
