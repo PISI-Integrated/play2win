@@ -44,7 +44,7 @@ const VideoPlayer = (props: Props) => {
 	};
 	return (
 		<div>
-			<Card className="h-[686px] video-gradient ">
+			<Card className="h-[686px] video-gradient card-gradient hover:border-[#f002ee] ">
 				<CardHeader className="bg-[#070B36] p-0 w-full h-[450px] rounded-t-[20px]">
 					{" "}
 					{/* <div className="w-full h-full rounded-t-[20px]">
@@ -68,6 +68,13 @@ const VideoPlayer = (props: Props) => {
 							Play the game
 						</Button>
 					</div>
+					<p className="text-white text-sm font-light w-full lg:w-[494px]">
+						{`Test your anticipation skills as you predict the ball's trajectory
+						and craft platforms to safely guide it into the cup`}
+					</p>
+					<Button className="bg-primary-bright hover:bg-primary-bright/35 transition-all w-[100px] h-[19px] mt-[63px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat ">
+						Single player
+					</Button>
 				</CardContent>
 				<CardFooter>
 					<p>Card Footer</p>
