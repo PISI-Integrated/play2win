@@ -2,14 +2,15 @@ import Reveal from "@/components/Reveal";
 import RevealHorizontal from "@/components/RevealHorizontal";
 import GameCard from "@/components/global/GameCard";
 import VideoPlayer from "@/components/global/VideoPlayer";
+import HomePlayer from "@/components/home/HomePlayer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Home() {
 	return (
 		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
-			<div className="col-span-3">
-				<VideoPlayer />
+			<div className="col-span-3 mb-6">
+				<HomePlayer />
 			</div>
 			<div className="col-span-3">
 				<div className="flex flex-col gap-4">

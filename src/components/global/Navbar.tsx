@@ -8,6 +8,9 @@ import { SearchIcon, XIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Dialog, Transition } from "@headlessui/react";
+import SignUpContent from "../auth/SignUpContent";
+import SignInContent from "../auth/SignInContent";
+import VerifyOTP from "../auth/VerifyOTP";
 // border border-solid border-[#FFFFFF33] bg-gradient-to-br from-[#E863E833] via-[#72307100] to-[#0C0E45] bg-cover bg-no-repeat bg-fixed shadow-[#FFFFFF1A] bg-blur
 
 type Props = {};
@@ -16,6 +19,7 @@ const Navbar = (props: Props) => {
 	const pathName = usePathname();
 	let [isOpen, setIsOpen] = useState(false);
 	let [isOpen2, setIsOpen2] = useState(false);
+	let [isOpen3, setIsOpen3] = useState(false);
 
 	function closeModal() {
 		setIsOpen(false);
@@ -23,12 +27,18 @@ const Navbar = (props: Props) => {
 	function closeModal2() {
 		setIsOpen2(false);
 	}
+	function closeModal3() {
+		setIsOpen3(false);
+	}
 
 	function openModal() {
 		setIsOpen(true);
 	}
 	function openModal2() {
 		setIsOpen2(true);
+	}
+	function openModal3() {
+		setIsOpen3(true);
 	}
 	// fixed inset-0 z-20
 	return (
@@ -137,71 +147,16 @@ const Navbar = (props: Props) => {
 														<XIcon className="flex md:hidden text-white" />
 													</div>
 												</Dialog.Title>
-												<div className="grid gap-4 py-4">
-													<div className="flex flex-col gap-3">
-														<Label
-															htmlFor="phone"
-															className="text-white"
-														>
-															Phone number
-														</Label>
-														<Input
-															id="phone"
-															value="Pedro Duarte"
-															className="col-span-3"
-														/>
-													</div>
-													<div className="flex flex-col gap-3">
-														<Label
-															htmlFor="password"
-															className="text-white"
-														>
-															Password
-														</Label>
-														<Input
-															id="name"
-															value="Pedro Duarte"
-															className="col-span-3"
-															type="password"
-														/>
-													</div>
-													<div className="flex flex-col gap-3">
-														<Label
-															htmlFor="confirm-password"
-															className="text-white"
-														>
-															Confirm password
-														</Label>
-														<Input
-															id="name"
-															value="Pedro Duarte"
-															className="col-span-3"
-															type="password"
-														/>
-													</div>
-													<div>
-														<p className="text-[#8D91BB] text-sm font-semibold font-NunitoSans">
-															Already have an account?{" "}
-															<span
-																onClick={() => {
-																	openModal2();
-																	closeModal();
-																}}
-																className="text-primary-bright cursor-pointer"
-															>
-																Sign In
-															</span>
-														</p>
-													</div>
-												</div>
-												<div className="flex items-center justify-end">
-													<Button
-														type="submit"
-														className="bg-[#E903E733] hover:bg-[#E903E733] border border-[#F002EE] text-xs uppercase px-11"
-													>
-														Sign Up
-													</Button>
-												</div>
+												<SignUpContent
+													handlerFunc={() => {
+														closeModal();
+														openModal2();
+													}}
+													action={() => {
+														closeModal();
+														openModal3();
+													}}
+												/>
 											</Dialog.Panel>
 										</Transition.Child>
 									</div>
@@ -253,58 +208,72 @@ const Navbar = (props: Props) => {
 														<XIcon className="flex md:hidden text-white" />
 													</div>
 												</Dialog.Title>
-												<div className="grid gap-4 py-4">
-													<div className="flex flex-col gap-3">
-														<Label
-															htmlFor="phone"
-															className="text-white"
-														>
-															Phone number
-														</Label>
-														<Input
-															id="phone"
-															value="Pedro Duarte"
-															className="col-span-3"
-														/>
-													</div>
-													<div className="flex flex-col gap-3">
-														<Label
-															htmlFor="password"
-															className="text-white"
-														>
-															Password
-														</Label>
-														<Input
-															id="name"
-															value="Pedro Duarte"
-															className="col-span-3"
-															type="password"
-														/>
-													</div>
+												<SignInContent
+													handlerFunc={() => {
+														openModal2();
+														closeModal2();
+													}}
+												/>
+											</Dialog.Panel>
+										</Transition.Child>
+									</div>
+								</div>
+							</Dialog>
+						</Transition>
+						<Transition
+							appear
+							show={isOpen3}
+							as={Fragment}
+						>
+							<Dialog
+								as="div"
+								className="relative z-10"
+								onClose={closeModal3}
+							>
+								<Transition.Child
+									as={Fragment}
+									enter="ease-out duration-300"
+									enterFrom="opacity-0"
+									enterTo="opacity-100 "
+									leave="ease-in duration-200"
+									leaveFrom="opacity-100"
+									leaveTo="opacity-0"
+								>
+									<div className="fixed inset-0 bg-black/25" />
+								</Transition.Child>
 
-													<div>
-														<p className="text-[#8D91BB] text-sm font-semibold font-NunitoSans">
-															I don't have an account?
-															<span
-																onClick={() => {
-																	openModal();
-																	closeModal2();
-																}}
-																className="text-primary-bright pl-1 cursor-pointer"
-															>
-																Sign Up
-															</span>
-														</p>
+								<div className="fixed inset-0 overflow-y-auto">
+									<div className="flex min-h-full items-center justify-center p-2 text-center">
+										<Transition.Child
+											as={Fragment}
+											enter="ease-out duration-300"
+											enterFrom="opacity-0 scale-95"
+											enterTo="opacity-100 scale-100"
+											leave="ease-in duration-200"
+											leaveFrom="opacity-100 scale-100"
+											leaveTo="opacity-0 scale-95"
+										>
+											<Dialog.Panel className="bg-black w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
+												<Dialog.Title
+													as="div"
+													className="text-lg font-medium leading-6 text-gray-900 mb-8"
+												>
+													<div className="flex justify-between items-center">
+														<h1 className="text-[32px] text-white font-NunitoSans font-semibold">
+															Enter OTP
+														</h1>
+														<XIcon className="flex md:hidden text-white" />
 													</div>
-												</div>
-												<div className="flex items-center justify-end">
-													<Button
-														type="submit"
-														className="bg-[#E903E733] hover:bg-[#E903E733] border border-[#F002EE] text-xs uppercase px-11"
-													>
-														Sign In
-													</Button>
-												</div>
+												</Dialog.Title>
+												<VerifyOTP
+													handlerFunc={() => {
+														openModal();
+														closeModal2();
+													}}
+													action={() => {
+														closeModal3();
+													}}
+												/>
 											</Dialog.Panel>
 										</Transition.Child>
 									</div>

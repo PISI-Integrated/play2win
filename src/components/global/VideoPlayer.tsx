@@ -76,9 +76,6 @@ const VideoPlayer = (props: Props) => {
 						Single player
 					</Button>
 				</CardContent>
-				<CardFooter>
-					<p>Card Footer</p>
-				</CardFooter>
 			</Card>
 		</div>
 	);
