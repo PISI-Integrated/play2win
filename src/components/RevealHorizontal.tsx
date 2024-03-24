@@ -29,6 +29,7 @@ const RevealHorizontal = ({ children }: Props) => {
 				transition={{
 					duration: 0.5,
 					delay: 0.25,
+					staggerChildren: 0.25,
 				}}
 			>
 				{children}

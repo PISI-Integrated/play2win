@@ -10,7 +10,9 @@ export default function Home() {
 	return (
 		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
 			<div className="col-span-3 mb-6">
-				<HomePlayer />
+				<RevealHorizontal>
+					<HomePlayer />
+				</RevealHorizontal>
 			</div>
 			<div className="col-span-3">
 				<div className="flex flex-col gap-4">

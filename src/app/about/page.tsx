@@ -39,7 +39,7 @@ const page = (props: Props) => {
 				</div>
 			</div>
 			<div className="col-span-1">
-				<div className="max-h-[686px] overflow-y-auto scrollbar-hide">
+				<div className=" scrollbar-hide">
 					<RevealHorizontal>
 						<div className="">
 							<GameCard />

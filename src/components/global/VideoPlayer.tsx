@@ -44,7 +44,7 @@ const VideoPlayer = (props: Props) => {
 	};
 	return (
 		<div>
-			<Card className="h-[686px] video-gradient card-gradient hover:border-[#f002ee] ">
+			<Card className="h-auto video-gradient card-gradient hover:border-[#f002ee] ">
 				<CardHeader className="bg-[#070B36] p-0 w-full h-[450px] rounded-t-[20px]">
 					{" "}
 					{/* <div className="w-full h-full rounded-t-[20px]">
