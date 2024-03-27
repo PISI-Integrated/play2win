@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useMutation } from "@tanstack/react-query";
+import { signUp } from "@/services";
+import toast from "react-hot-toast";
+import { TSignUp } from "@/types";
+import Cookies from "js-cookie";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 type Props = {
 	handlerFunc: () => void;
@@ -9,6 +15,52 @@ type Props = {
 };
 
 const SignUpContent = ({ handlerFunc, action }: Props) => {
+	const [signUpDetails, setSignUpDetails] = useState<TSignUp>({
+		phone_number: "",
+		password: "",
+		confirm_password: "",
+	});
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = e.target;
+		setSignUpDetails({
+			...signUpDetails,
+			[name]: value,
+		});
+	};
+
+	const { mutate: signUpMutation, isPending } = useMutation({
+		mutationFn: signUp,
+		onSuccess: ({ success, message }) => {
+			if (success === true) {
+				action();
+				toast.success(message);
+			} else {
+				toast.error(message);
+			}
+			// Invalidate and refetch
+			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
+		},
+		onError: ({ message }) => {
+			toast.error(message);
+		},
+	});
+
+	function handleSignUp() {
+		Cookies.set("phone_number", signUpDetails?.phone_number);
+		// Validate password and confirm password
+		if (signUpDetails.password !== signUpDetails.confirm_password) {
+			toast.error("Passwords do not match");
+			return;
+		} else {
+			const payload = {
+				password: signUpDetails.password,
+				phone_number: signUpDetails.phone_number,
+			};
+			signUpMutation({ ...payload });
+		}
+	}
+
 	return (
 		<div>
 			<div className="grid gap-4 py-4">
@@ -20,9 +72,10 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 						Phone number
 					</Label>
 					<Input
-						id="phone"
-						value="Pedro Duarte"
+						name="phone_number"
+						value={signUpDetails.phone_number}
 						className="col-span-3"
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="flex flex-col gap-3">
@@ -33,10 +86,11 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 						Password
 					</Label>
 					<Input
-						id="name"
-						value="Pedro Duarte"
+						name="password"
+						value={signUpDetails.password}
 						className="col-span-3"
 						type="password"
+						onChange={handleChange} // Add onChange for password
 					/>
 				</div>
 				<div className="flex flex-col gap-3">
@@ -47,10 +101,11 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 						Confirm password
 					</Label>
 					<Input
-						id="name"
-						value="Pedro Duarte"
+						name="confirm_password"
+						value={signUpDetails.confirm_password}
 						className="col-span-3"
 						type="password"
+						onChange={handleChange} // Add onChange for confirm password
 					/>
 				</div>
 				<div>
@@ -68,9 +123,13 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 			<div className="flex items-center justify-end">
 				<Button
 					type="submit"
-					onClick={action}
+					onClick={handleSignUp}
+					disabled={isPending}
 					className="bg-[#E903E733] hover:bg-[#E903E733] border border-[#F002EE] text-xs uppercase px-11"
 				>
+					{isPending ? (
+						<ReloadIcon className="w-4 h-4 animate-spin mr-4" />
+					) : null}
 					Sign Up
 				</Button>
 			</div>
