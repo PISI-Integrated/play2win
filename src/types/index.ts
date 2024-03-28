@@ -12,3 +12,6 @@ export interface TVerifyOtp {
 	phone_number: string;
 	verification_code: string;
 }
+export type TResendCode = {
+	phone_number: string;
+};
