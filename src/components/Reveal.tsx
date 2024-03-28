@@ -8,7 +8,7 @@ type Props = {
 
 const Reveal = ({ children }: Props) => {
 	const ref = useRef(null);
-	const isInView = useInView(ref, { once: false });
+	const isInView = useInView(ref, { once: true });
 	const mainControls = useAnimation();
 	const slideControls = useAnimation();
 
@@ -30,7 +30,7 @@ const Reveal = ({ children }: Props) => {
 				transition={{
 					duration: 0.5,
 					delay: 0.25,
-					staggerChildren:0.25
+					staggerChildren: 0.25,
 				}}
 			>
 				{children}

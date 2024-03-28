@@ -384,6 +384,9 @@ const Navbar = (props: Props) => {
 														openModal();
 														closeModal2();
 													}}
+													action={() => {
+														closeModal2();
+													}}
 												/>
 											</Dialog.Panel>
 										</Transition.Child>
@@ -443,6 +446,7 @@ const Navbar = (props: Props) => {
 													}}
 													action={() => {
 														closeModal3();
+														openModal2();
 													}}
 												/>
 											</Dialog.Panel>
