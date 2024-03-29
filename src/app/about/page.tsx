@@ -42,22 +42,29 @@ const page = (props: Props) => {
 				<div className=" scrollbar-hide">
 					<RevealHorizontal>
 						<div className="">
-							<GameCard />
+							<GameCard
+								gameName="RaidShooter"
+								img="/assets/RaidShooter.png"
+								content={`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
+							/>
 						</div>
 					</RevealHorizontal>
 					<RevealHorizontal>
 						<div className="mt-4">
-							<GameCard />
+							<GameCard
+								gameName="Space hazards & Asteroid Redirection Program"
+								content="Take control of a specialized spacecraft tasked with safeguarding a rocket from incoming waves of space debris."
+								img="/assets/Sharp.jpg"
+							/>
 						</div>
 					</RevealHorizontal>
 					<RevealHorizontal>
 						<div className="mt-4">
-							<GameCard />
-						</div>
-					</RevealHorizontal>
-					<RevealHorizontal>
-						<div className="mt-4">
-							<GameCard />
+							<GameCard
+								gameName="Drop Ball"
+								content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
+								img="/assets/DropBall.png"
+							/>
 						</div>
 					</RevealHorizontal>
 				</div>

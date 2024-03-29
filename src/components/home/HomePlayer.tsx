@@ -55,13 +55,13 @@ const HomePlayer = (props: Props) => {
 		<div>
 			<Card className="h-auto lg:h-[455px]  video-gradient card-gradient hover:border-[#f002ee] ">
 				<CardContent className="flex flex-col lg:flex-row items-start h-auto lg:h-[450px]">
-					{/* <video
-						src="/assets/Video.MP4"
+					<video
+						src="/assets/RaidShooter.MP4"
 						width="800"
 						height="400"
 						className="w-full xl:w-[600px] 2xl:w-full h-full rounded-[25px]"
 						controls
-					/> */}
+					/>
 					<div className="p-4 lg:pt-6">
 						<div className="flex flex-col gap-4">
 							<h1 className="text-white text-[32px] font-extrabold">
@@ -157,8 +157,8 @@ const HomePlayer = (props: Props) => {
 									<Card className="w-full bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] border-0">
 										{/* <CardHeader></CardHeader> */}
 										<CardContent className="">
-											<div className="w-full h-full flex justify-between items-center rounded-b-[20px] py-4 bg-[#070B36]">
-												<div className="h-[186px]">
+											<div className="w-full h-full flex justify-between items-center rounded-b-[20px] md:pl-4 py-4 bg-[#070B36]">
+												<div className="h-[186px] mr-2 md:mr-4">
 													<Image
 														src="/assets/RaidShooter.png"
 														width={110}

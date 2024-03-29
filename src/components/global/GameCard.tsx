@@ -13,9 +13,13 @@ import {
 import { Dialog, Transition } from "@headlessui/react";
 import FinancialContent from "../modal-content/FinancialContent";
 
-type Props = {};
+type Props = {
+	content: string;
+	img: string;
+	gameName: string;
+};
 
-const GameCard = (props: Props) => {
+const GameCard = ({ img, content, gameName }: Props) => {
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
 		setIsOpen(false);
@@ -23,14 +27,24 @@ const GameCard = (props: Props) => {
 	function openModal() {
 		setIsOpen(true);
 	}
+
+	function truncateContent(content: any, maxWords: any) {
+		const words = content?.split(" ");
+		if (words?.length > maxWords) {
+			return words?.slice(0, maxWords).join(" ") + "...";
+		} else {
+			return content;
+		}
+	}
+
 	return (
 		<main>
 			<Card className="card-gradient hover:border-[#f002ee] w-[340px] md:w-[429px] h-[218px]">
 				{/* <CardHeader></CardHeader> */}
-				<CardContent className="w-full h-full flex justify-between items-center pr-0 md:pr-4">
-					<div className="h-[186px]">
+				<CardContent className="w-full h-full flex justify-between items-center pr-0  pl-2 md:pr-4">
+					<div className="w-full md:w-[110px] h-[186px] md:mr-4">
 						<Image
-							src="/assets/RaidShooter.png"
+							src={img}
 							width={110}
 							height={186}
 							className="object-contain  md:object-cover w-full h-full "
@@ -39,11 +53,15 @@ const GameCard = (props: Props) => {
 					</div>
 					<div className="flex flex-col gap-2 h-[186px] pr-4 flex-1">
 						<h1 className="text-white text-base md:text-[20px] font-bold">
-							Raid Shooter
+							{gameName}
 						</h1>
-						<p className="w-auto md:w-[182px] text-white text-sm text-ellipsis">
-							{`Blast through enemy infested rooms, collect deadly weapons and upgrade...`}
-						</p>
+						<div className="w-[200px] ">
+							{/* Adjust the width and height as per your design */}
+							<p className="text-white text-sm">
+								{truncateContent(content, 10)}
+							</p>
+						</div>
+
 						<Button className="bg-primary-green hover:bg-primary-green w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
 							MultiPlayer
 						</Button>
@@ -126,13 +144,13 @@ const GameCard = (props: Props) => {
 								leaveTo="opacity-0 scale-95"
 							>
 								<Dialog.Panel className="bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] w-full max-w-md transform overflow-hidden rounded-[20px] p-0 text-left align-middle shadow-xl transition-all">
-									<Card className="w-full bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] border-0">
+									<Card className="w-full bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] border-0 md:pl-4">
 										{/* <CardHeader></CardHeader> */}
 										<CardContent className="">
 											<div className="w-full h-full flex justify-between items-center rounded-b-[20px] py-4 bg-[#070B36]">
-												<div className="h-[186px]">
+												<div className="w-auto mr-2 h-[186px] md:mr-4">
 													<Image
-														src="/assets/RaidShooter.png"
+														src={img}
 														width={110}
 														height={186}
 														className="object-contain  md:object-cover w-full h-full "
@@ -141,10 +159,10 @@ const GameCard = (props: Props) => {
 												</div>
 												<div className="flex flex-col gap-2 h-[186px] pr-4 flex-1">
 													<h1 className="text-white text-base md:text-[20px] font-bold">
-														Raid Shooter
+														{gameName}
 													</h1>
 													<p className="w-auto  text-white text-sm text-ellipsis">
-														{`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
+														{content}
 													</p>
 
 													<div className=" flex items-center justify-end gap-2 pt-2">

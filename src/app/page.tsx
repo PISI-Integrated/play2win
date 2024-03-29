@@ -48,17 +48,29 @@ export default function Home() {
 			<div className="w-full flex items-center gap-4 md:gap-0 md:justify-between  xl:p-0 xl:justify-between col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
 				<div className="col-span-1 ">
 					<RevealHorizontal>
-						<GameCard />
+						<GameCard
+							gameName="RaidShooter"
+							img="/assets/RaidShooter.png"
+							content={`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
+						/>
 					</RevealHorizontal>
 				</div>
 				<div className="col-span-1">
 					<RevealHorizontal>
-						<GameCard />
+						<GameCard
+							gameName="Space hazards & Asteroid Redirection Program"
+							content="Take control of a specialized spacecraft tasked with safeguarding a rocket from incoming waves of space debris."
+							img="/assets/Sharp.jpg"
+						/>
 					</RevealHorizontal>
 				</div>
 				<div className="col-span-1">
 					<RevealHorizontal>
-						<GameCard />
+						<GameCard
+							gameName="Drop Ball"
+							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
+							img="/assets/DropBall.png"
+						/>
 					</RevealHorizontal>
 				</div>
 			</div>
