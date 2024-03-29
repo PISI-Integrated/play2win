@@ -31,11 +31,11 @@ export const signUp = async (payload: TSignUp) => {
 	}
 };
 
-export const signIn = async (payload: TSignIn) => {
+export const signIn = async (formData: FormData) => {
 	try {
 		const { data } = await axios.post(
 			`${process.env.NEXT_PUBLIC_URL}/auth/login`,
-			payload
+			formData
 		);
 		return data;
 	} catch (error: any) {

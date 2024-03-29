@@ -66,8 +66,8 @@ const VerifyOTP = ({ handlerFunc, action }: Props) => {
 
 	function handleResendCode() {
 		const payload: TResendCode = {
-			// phone_number: phone_number as string,
-			phone_number: "08160477103",
+			phone_number: phone_number as string,
+			// phone_number: "08160477103",
 		};
 
 		resendCodeMutation({ ...payload });

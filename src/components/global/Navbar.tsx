@@ -396,7 +396,7 @@ const Navbar = (props: Props) => {
 						</Transition>
 						<Transition
 							appear
-							show={true}
+							show={isOpen3}
 							as={Fragment}
 						>
 							<Dialog

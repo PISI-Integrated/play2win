@@ -31,12 +31,12 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 
 	const { mutate: signInMutation, isPending } = useMutation({
 		mutationFn: signIn,
-		onSuccess: ({ success, message }) => {
+		onSuccess: ({ success, message, detail }) => {
 			if (success === true) {
 				action();
 				toast.success(message);
 			} else {
-				toast.error(message);
+				toast.error(detail);
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
@@ -47,9 +47,11 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 	});
 
 	function handleSignIn() {
-		// Validate password and confirm password
+		const formData = new FormData();
+		formData.append("username", signInDetails.username);
+		formData.append("password", signInDetails.password);
 
-		signInMutation({ ...signInDetails });
+		signInMutation(formData);
 	}
 
 	return (
