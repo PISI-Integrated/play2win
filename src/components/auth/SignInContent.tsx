@@ -9,6 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 type Props = {
 	handlerFunc: () => void;
@@ -17,7 +18,7 @@ type Props = {
 
 const SignInContent = ({ handlerFunc, action }: Props) => {
 	const [signInDetails, setSignInDetails] = useState<TSignIn>({
-		username: "",
+		username: "+234",
 		password: "",
 	});
 
@@ -28,15 +29,17 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 			[name]: value,
 		});
 	};
+	const [showPassword, setShowPassword] = useState<boolean>(false);
 
 	const { mutate: signInMutation, isPending } = useMutation({
 		mutationFn: signIn,
-		onSuccess: ({ success, message, detail }) => {
-			if (success === true) {
+		onSuccess: ({ success, message, detail, access_token }) => {
+			if (access_token) {
 				action();
-				toast.success(message);
+				toast.success("You have successfully signed in");
+				Cookies.set("token", access_token);
 			} else {
-				toast.error(detail);
+				toast.error(message);
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
@@ -78,13 +81,27 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 					>
 						Password
 					</Label>
-					<Input
-						name="password"
-						value={signInDetails?.password}
-						onChange={handleChange}
-						className="col-span-3"
-						type="password"
-					/>
+					<div className="relative">
+						<Input
+							name="password"
+							value={signInDetails?.password}
+							onChange={handleChange}
+							className="col-span-3"
+							type="password"
+						/>
+
+						<button
+							type="button"
+							className="absolute right-4 top-12 transform -translate-y-1/2 focus:outline-none"
+							onClick={() => setShowPassword(!showPassword)}
+						>
+							{showPassword ? (
+								<EyeIcon className={`h-5 w-5 text-white `} />
+							) : (
+								<EyeOffIcon className="h-5 w-5 text-white" />
+							)}
+						</button>
+					</div>
 				</div>
 
 				<div>

@@ -16,7 +16,7 @@ type Props = {
 
 const SignUpContent = ({ handlerFunc, action }: Props) => {
 	const [signUpDetails, setSignUpDetails] = useState<TSignUp>({
-		phone_number: "",
+		phone_number: "+234",
 		password: "",
 		confirm_password: "",
 	});
@@ -73,6 +73,7 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 					</Label>
 					<Input
 						name="phone_number"
+						placeholder="+234"
 						value={signUpDetails.phone_number}
 						className="col-span-3"
 						onChange={handleChange}
