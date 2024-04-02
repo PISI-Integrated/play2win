@@ -101,7 +101,7 @@ const HomePlayer = (props: Props) => {
 									</defs>
 								</svg>
 							</div>
-							<Button className="bg-primary-bright hover:bg-primary-bright/35 transition-all w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat ">
+							<Button className="bg-primary-bright hover:bg-primary-bright/35 transition-all w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat ">
 								Shooter | Top down
 							</Button>
 							<p className="text-white text-sm font-light w-full lg:w-[494px]">
