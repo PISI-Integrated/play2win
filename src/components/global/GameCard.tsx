@@ -17,9 +17,10 @@ type Props = {
 	content: string;
 	img: string;
 	gameName: string;
+	tag: string;
 };
 
-const GameCard = ({ img, content, gameName }: Props) => {
+const GameCard = ({ img, content, gameName, tag }: Props) => {
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
 		setIsOpen(false);
@@ -62,11 +63,11 @@ const GameCard = ({ img, content, gameName }: Props) => {
 							</p>
 						</div>
 
-						<Button className="bg-primary-green hover:bg-primary-green w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
-							MultiPlayer
+						<Button className="bg-primary-green hover:bg-primary-green w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
+							{tag}
 						</Button>
 						<div className=" flex items-end justify-between pt-2">
-							<div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
+							{/* <div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
 								<p className="text-white">4.5</p>
 								<svg
 									width="13"
@@ -99,7 +100,7 @@ const GameCard = ({ img, content, gameName }: Props) => {
 										</linearGradient>
 									</defs>
 								</svg>
-							</div>
+							</div> */}
 							<Button
 								onClick={openModal}
 								className="bg-[#E903E733] rounded-[100px] w-[111px] h-[36px] text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
@@ -166,10 +167,10 @@ const GameCard = ({ img, content, gameName }: Props) => {
 													</p>
 
 													<div className=" flex items-center justify-end gap-2 pt-2">
-														<Button className="bg-primary-green hover:bg-primary-green w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
-															MultiPlayer
+														<Button className="bg-primary-green hover:bg-primary-green w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
+															{tag}
 														</Button>
-														<div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
+														{/* <div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
 															<p className="text-white">4.5</p>
 															<svg
 																width="13"
@@ -202,13 +203,15 @@ const GameCard = ({ img, content, gameName }: Props) => {
 																	</linearGradient>
 																</defs>
 															</svg>
-														</div>
+														</div> */}
 													</div>
 												</div>
 											</div>
 
 											<div className="flex justify-between items-center px-4  py-6 ">
-												<h1 className="text-white text-[32px]">₦500</h1>
+												<h1 className="text-white text-[32px]">
+													{gameName === "RaidShooter" ? "₦100" : "Free"}
+												</h1>
 												<Button
 													onClick={openModal}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"

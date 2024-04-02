@@ -102,7 +102,7 @@ const HomePlayer = (props: Props) => {
 								</svg>
 							</div>
 							<Button className="bg-primary-bright hover:bg-primary-bright/35 transition-all w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat ">
-								Single player
+								Shooter | Top down
 							</Button>
 							<p className="text-white text-sm font-light w-full lg:w-[494px]">
 								{`Test your anticipation skills as you predict the ball's trajectory
@@ -176,10 +176,10 @@ const HomePlayer = (props: Props) => {
 													</p>
 
 													<div className=" flex items-center justify-end gap-2 pt-2">
-														<Button className="bg-primary-green hover:bg-primary-green w-[100px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
-															MultiPlayer
+														<Button className="bg-primary-green hover:bg-primary-green w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
+															Shooter | Top down
 														</Button>
-														<div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
+														{/* <div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
 															<p className="text-white">4.5</p>
 															<svg
 																width="13"
@@ -212,13 +212,13 @@ const HomePlayer = (props: Props) => {
 																	</linearGradient>
 																</defs>
 															</svg>
-														</div>
+														</div> */}
 													</div>
 												</div>
 											</div>
 
 											<div className="flex justify-between items-center px-4  py-6 ">
-												<h1 className="text-white text-[32px]">₦500</h1>
+												<h1 className="text-white text-[32px]">₦100</h1>
 												<Button
 													onClick={openModal}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"

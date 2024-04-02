@@ -17,7 +17,7 @@ const Footer = (props: Props) => {
 					/>
 				</div>
 				<p className="text-[10px] md:text-sm text-white font-NunitoSans font-semibold">
-					Play To Win
+					Play 2 Win
 				</p>
 			</div>
 		</footer>

@@ -87,7 +87,7 @@ const Navbar = (props: Props) => {
 						/>
 					</div>
 					<p className="text-[10px] md:text-sm text-white font-NunitoSans font-semibold">
-						Play To Win
+						Play 2 Win
 					</p>
 				</Link>
 				<Sheet>
@@ -103,7 +103,7 @@ const Navbar = (props: Props) => {
 								/>
 							</div>
 							<p className="text-[10px] md:text-sm text-white font-NunitoSans font-semibold">
-								Play To Win
+								Play 2 Win
 							</p>
 						</div>
 					</SheetTrigger>
