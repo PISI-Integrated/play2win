@@ -45,7 +45,7 @@ export default function Home() {
 					</Reveal>
 				</div>
 			</div>
-			<div className="w-full flex flex-col items-center gap-4 md:gap-0 md:justify-between  xl:p-0 xl:justify-between col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
+			<div className="w-full flex flex-col md:flex-row items-center gap-4 md:gap-0 md:justify-between  xl:p-0 xl:justify-between col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
 				<div className="col-span-1 ">
 					<RevealHorizontal>
 						<GameCard
