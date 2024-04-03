@@ -25,8 +25,7 @@ export default function Home() {
 							</Reveal>
 							<Reveal>
 								<p className="hidden md:flex text-base text-[#8D91BB] font-normal leading-[20px]">
-									{`Are you just getting into gaming or simply looking for inspiration
-						perhaps you’ve mastered. Explore the best of the best here`}
+									{`Discover the thrill of victory with Play 2 Win's Best Games! Our treasure trove features both free and premium mobile and casino games. Whether you're chasing the adrenaline rush of a high score or the excitement of a jackpot, Play 2 Win is your ultimate gaming destination.`}
 								</p>
 							</Reveal>
 						</div>
@@ -39,8 +38,7 @@ export default function Home() {
 
 					<Reveal>
 						<p className="text-base flex md:hidden text-[#8D91BB] font-normal leading-[20px]">
-							{`Are you just getting into gaming or simply looking for inspiration
-						perhaps you’ve mastered. Explore the best of the best here`}
+							{`Discover the thrill of victory with Play 2 Win's Best Games! Our treasure trove features both free and premium mobile and casino games. Whether you're chasing the adrenaline rush of a high score or the excitement of a jackpot, Play 2 Win is your ultimate gaming destination.`}
 						</p>
 					</Reveal>
 				</div>

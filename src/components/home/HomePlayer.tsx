@@ -102,7 +102,7 @@ const HomePlayer = (props: Props) => {
 								</svg>
 							</div>
 							<Button className="bg-primary-bright hover:bg-primary-bright/35 transition-all w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat ">
-								Shooter | Top down
+								Singleplayer
 							</Button>
 							<p className="text-white text-sm font-light w-full lg:w-[494px]">
 								{`Test your anticipation skills as you predict the ball's trajectory
@@ -160,7 +160,7 @@ const HomePlayer = (props: Props) => {
 											<div className="w-full h-full flex justify-between items-center rounded-b-[20px] md:pl-4 py-4 bg-[#070B36]">
 												<div className="h-[186px] mr-2 md:mr-4">
 													<Image
-														src="/assets/RaidShooter.png"
+														src="/assets/DropBall.png"
 														width={110}
 														height={186}
 														className="object-contain  md:object-cover w-full h-full "
@@ -169,15 +169,16 @@ const HomePlayer = (props: Props) => {
 												</div>
 												<div className="flex flex-col gap-2 h-[186px] pr-4 flex-1">
 													<h1 className="text-white text-base md:text-[20px] font-bold">
-														Raid Shooter
+														Drop Ball
 													</h1>
 													<p className="w-auto  text-white text-sm text-ellipsis">
-														{`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
+														{`Test your anticipation skills as you predict the ball's trajectory
+						and craft platforms to safely guide it into the cup`}
 													</p>
 
-													<div className=" flex items-center justify-end gap-2 pt-2">
+													<div className=" flex items-center justify-start gap-2 pt-2">
 														<Button className="bg-primary-green hover:bg-primary-green w-auto max-w-[150px] h-[19px] rounded-[20px] text-white text-[10px] uppercase font-semibold font-Montserrat">
-															Shooter | Top down
+															Singleplayer
 														</Button>
 														{/* <div className="w-[63px] h-[27px] bg-[#FFFFFF1A] py-2 px-2 flex items-center gap-1 justify-center rounded-[20px] border ">
 															<p className="text-white">4.5</p>
@@ -218,12 +219,12 @@ const HomePlayer = (props: Props) => {
 											</div>
 
 											<div className="flex justify-between items-center px-4  py-6 ">
-												<h1 className="text-white text-[32px]">₦100</h1>
+												<h1 className="text-white text-[32px]">Free</h1>
 												<Button
 													onClick={openModal}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
 												>
-													Subscribe To Play
+													Play
 												</Button>
 											</div>
 										</CardContent>

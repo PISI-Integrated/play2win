@@ -195,7 +195,7 @@ const Navbar = (props: Props) => {
 													fill="white"
 												/>
 											</svg> */}
-												<h1 className="text-white">About</h1>
+												<h1 className="text-white">About Us</h1>
 											</div>
 										</Link>
 									</SheetTrigger>
@@ -221,7 +221,7 @@ const Navbar = (props: Props) => {
 							href="/about"
 							className="cool-hover cursor-pointer"
 						>
-							<p className=" font-semibold">About games</p>
+							<p className=" font-semibold">About Us</p>
 							<div
 								className={`${
 									pathName === "/about" ? "flex" : "hidden"

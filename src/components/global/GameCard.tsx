@@ -216,7 +216,9 @@ const GameCard = ({ img, content, gameName, tag }: Props) => {
 													onClick={openModal}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
 												>
-													Subscribe To Play
+													{gameName === "RaidShooter"
+														? "Subscribe To Play"
+														: "Play"}
 												</Button>
 											</div>
 										</CardContent>
