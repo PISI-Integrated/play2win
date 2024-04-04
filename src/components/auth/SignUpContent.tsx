@@ -7,7 +7,8 @@ import { signUp } from "@/services";
 import toast from "react-hot-toast";
 import { TSignUp } from "@/types";
 import Cookies from "js-cookie";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { EyeNoneIcon, ReloadIcon } from "@radix-ui/react-icons";
+import { EyeIcon } from "lucide-react";
 
 type Props = {
 	handlerFunc: () => void;
@@ -61,6 +62,10 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 		}
 	}
 
+	const [hidePassword, setHidePassword] = useState<boolean>(true);
+	const togglePasswordVisibility = () => {
+		setHidePassword(!hidePassword);
+	};
 	return (
 		<div>
 			<div className="grid gap-4 py-4">
@@ -86,13 +91,26 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 					>
 						Password
 					</Label>
-					<Input
-						name="password"
-						value={signUpDetails.password}
-						className="col-span-3"
-						type="password"
-						onChange={handleChange} // Add onChange for password
-					/>
+					<div className="relative">
+						<Input
+							name="password"
+							value={signUpDetails.password}
+							className="col-span-3"
+							type={hidePassword ? "password" : "text"}
+							onChange={handleChange} // Add onChange for password
+						/>
+						{hidePassword ? (
+							<EyeNoneIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						) : (
+							<EyeIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						)}
+					</div>
 				</div>
 				<div className="flex flex-col gap-3">
 					<Label
@@ -101,13 +119,26 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 					>
 						Confirm password
 					</Label>
-					<Input
-						name="confirm_password"
-						value={signUpDetails.confirm_password}
-						className="col-span-3"
-						type="password"
-						onChange={handleChange} // Add onChange for confirm password
-					/>
+					<div className="relative">
+						<Input
+							name="confirm_password"
+							value={signUpDetails.confirm_password}
+							className="col-span-3"
+							type={hidePassword ? "password" : "text"}
+							onChange={handleChange} // Add onChange for confirm password
+						/>
+						{hidePassword ? (
+							<EyeNoneIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						) : (
+							<EyeIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						)}
+					</div>
 				</div>
 				<div>
 					<p className="text-[#8D91BB] text-sm font-semibold font-NunitoSans">
