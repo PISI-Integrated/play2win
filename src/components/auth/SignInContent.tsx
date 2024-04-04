@@ -8,7 +8,7 @@ import { signIn } from "@/services";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { EyeNoneIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 type Props = {
@@ -29,7 +29,11 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 			[name]: value,
 		});
 	};
-	const [showPassword, setShowPassword] = useState<boolean>(false);
+
+	const [hidePassword, setHidePassword] = useState<boolean>(true);
+	const togglePasswordVisibility = () => {
+		setHidePassword(!hidePassword);
+	};
 
 	const { mutate: signInMutation, isPending } = useMutation({
 		mutationFn: signIn,
@@ -87,20 +91,20 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 							value={signInDetails?.password}
 							onChange={handleChange}
 							className="col-span-3"
-							type="password"
+							type={hidePassword ? "password" : "text"}
 						/>
 
-						<button
-							type="button"
-							className="absolute right-4 top-12 transform -translate-y-1/2 focus:outline-none"
-							onClick={() => setShowPassword(!showPassword)}
-						>
-							{showPassword ? (
-								<EyeIcon className={`h-5 w-5 text-white `} />
-							) : (
-								<EyeOffIcon className="h-5 w-5 text-white" />
-							)}
-						</button>
+						{hidePassword ? (
+							<EyeNoneIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						) : (
+							<EyeIcon
+								onClick={togglePasswordVisibility}
+								className="w-5 h-5 absolute top-2 right-4 text-white"
+							/>
+						)}
 					</div>
 				</div>
 
