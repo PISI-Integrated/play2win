@@ -7,6 +7,15 @@ export const signUp = async (payload: TSignUp) => {
 		const { data } = await axios.post(
 			`${process.env.NEXT_PUBLIC_URL}/auth/register`,
 			payload
+			// {
+			// 	headers:{
+
+			// 			post: {
+			// 				"Access-Control-Allow-Origin": true
+			// 			  }
+
+			// 	}
+			// }
 		);
 		return data;
 	} catch (error: any) {

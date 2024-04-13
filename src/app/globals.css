@@ -4,11 +4,7 @@
 @tailwind utilities;
 
 .gradient {
-	background: linear-gradient(
-			0deg,
-			rgba(7, 11, 54, 0.9) 0%,
-			rgba(7, 11, 54, 0.9) 100%
-		),
+	background: radial-gradient(50% 50% at 50% 50%, #1a1f53 0%, #07080f 57%),
 		/* url(<path-to-image>) */ lightgray 50% / cover no-repeat;
 }
 
