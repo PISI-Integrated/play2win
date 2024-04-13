@@ -18,7 +18,7 @@ const Footer = (props: Props) => {
 			<div className="flex flex-col gap-2">
 				<div>
 					<Image
-						src="/Logo.svg"
+						src="/Logo.png"
 						width={69}
 						height={47}
 						className="w-[51px] md:w-[69px] h-[35px] md:h-[47px]"
