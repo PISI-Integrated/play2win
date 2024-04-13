@@ -294,7 +294,7 @@ const Navbar = (props: Props) => {
 						</Link>
 					</div>
 					<div className="flex items-center gap-2">
-						<div className="hidden xl:flex xl:relative h-11">
+						{/* <div className="hidden xl:flex xl:relative h-11">
 							<Input
 								type="text"
 								className="w-full lg:w-[400px] rounded-[100px] bg-[#FFFFFF1A] backdrop-blur-[5px] text-white"
@@ -304,7 +304,7 @@ const Navbar = (props: Props) => {
 						</div>
 						<div className="flex md:hidden items-center  justify-center w-11 h-11 border rounded-full">
 							<SearchIcon className=" text-white" />
-						</div>
+						</div> */}
 						<Popover>
 							<PopoverTrigger
 								className="hidden cursor-pointer"
