@@ -25,9 +25,6 @@ const Footer = (props: Props) => {
 						alt="Logo"
 					/>
 				</div>
-				<p className="text-[10px] md:text-sm text-white font-NunitoSans font-semibold">
-					Play 2 Win
-				</p>
 			</div>
 		</footer>
 	);
