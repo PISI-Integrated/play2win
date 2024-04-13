@@ -9,7 +9,7 @@ const page = (props: Props) => {
 				<h1 className="text-white text-[32px] font-extrabold leading-[28px]">
 					Privacy Policy
 				</h1>
-				<p className="text-white text-base leading-5">{`P.E GAMING LIMITED ("we," "us," or "our") is committed to protecting the privacy of our users. This Privacy Policy outlines the types of information we collect, how we use it, and the choices you have regarding your information when you use our gaming services.`}</p>
+				<p className="text-white text-base leading-5">{`Play2Win Ltd ("we," "us," or "our") is committed to protecting the privacy of our users. This Privacy Policy outlines the types of information we collect, how we use it, and the choices you have regarding your information when you use our gaming services.`}</p>
 				<div className="flex flex-col gap-2">
 					<h2 className="text-white text-base font-bold leading-5">
 						1. Information We Collect

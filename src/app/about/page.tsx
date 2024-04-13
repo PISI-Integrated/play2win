@@ -22,7 +22,7 @@ const page = (props: Props) => {
 									About Us
 								</h1>
 								<p className="hidden md:flex text-base text-[#8D91BB] font-normal leading-[20px]">
-									{`Powered by PE Gaming Services Ltd and part of PISI Integrated Services Ltd, trading as Spin Lotto, Play 2 Win offers an unrivalled gaming universe. We promise safe gaming as an NCC and NLRC-licensed organisation. Explore our vast selection of thrilling free and premium mobile games and casino bets. At Play 2 Win, every click brings you closer to your next big win. Start your adventure today!`}
+									{`Powered by Play2Win Ltd and part of PISI Integrated Services Ltd, trading as Spin Lotto, Play 2 Win offers an unrivalled gaming universe. We promise safe gaming as an NCC and NLRC-licensed organisation. Explore our vast selection of thrilling free and premium mobile games and casino bets. At Play 2 Win, every click brings you closer to your next big win. Start your adventure today!`}
 								</p>
 							</div>
 							<Button className="rounded-[100px] w-auto md:w-[142px] h-11 text-xs font-extrabold uppercase border bg-[#FFFFFF0D]">

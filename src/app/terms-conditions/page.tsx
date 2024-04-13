@@ -3,25 +3,13 @@ import React from "react";
 type Props = {};
 
 const page = (props: Props) => {
-	type TermProps = {
-		header: string;
-		content: string;
-	};
-	const TermComp = ({ header, content }: TermProps) => {
-		return (
-			<div className="flex flex-col gap-2">
-				<h2 className="text-white text-base font-bold leading-5">{header}</h2>
-				<p className="text-white text-base leading-5">{content}</p>
-			</div>
-		);
-	};
 	return (
 		<div className="pb-32">
 			<div className="flex flex-col gap-4">
 				<h1 className="text-white text-[32px] font-extrabold leading-[28px]">
 					Terms & Conditions
 				</h1>
-				<p className="text-white text-base leading-5">{`These Terms and Conditions ("Terms") govern your use of the gaming services provided by P.E GAMING LIMITED ("we," "us," or "our"), located at 155 Broadway Marina, as well as any related websites, mobile applications, and platforms operated by us.`}</p>
+				<p className="text-white text-base leading-5">{`These Terms and Conditions ("Terms") govern your use of the gaming services provided by Play2Win Ltd ("we," "us," or "our"), located at 155 Broadway Marina, as well as any related websites, mobile applications, and platforms operated by us.`}</p>
 				<div className="flex flex-col gap-2">
 					<h2 className="text-white text-base font-bold leading-5">
 						1. Acceptance of Terms
