@@ -32,6 +32,47 @@ const page = (props: Props) => {
 						{` Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action`}
 					</p>
 				</div>
+				<div className="w-auto max-w-[733px] h-auto border border-[#8D91BB] my-12">
+					<div className="w-full h-[36px] flex items-center justify-start px-2 border border-b-[#8D91BB]">
+						<div className="w-full h-[36px] flex items-center justify-start px-2 ">
+							<h1 className="text-white">Keyword</h1>
+						</div>
+						<div className="w-full h-[36px] flex items-center justify-start px-2 border border-l-[#8D91BB]">
+							<h1 className="text-white">Function</h1>
+						</div>
+						<div className="w-full h-[36px] flex items-center justify-start px-2 border border-l-[#8D91BB]">
+							<h1 className="text-white">Cost</h1>
+						</div>
+						<div className="w-full h-[36px] flex items-center justify-start px-2 border border-l-[#8D91BB]">
+							<h1 className="text-white">Validity</h1>
+						</div>
+					</div>
+					<div className="w-full h-[75px] bg-[#21222F] flex items-center justify-start px-2 border border-b-[#8D91BB]">
+						<div className="w-full h-[75px] flex items-center justify-start px-2 ">
+							<h1 className="text-white">DPLAY</h1>
+						</div>
+						<div className="w-full h-[75px] flex items-center justify-start px-2 py-4 border border-l-[#8D91BB]">
+							<h1 className="text-white">
+								Subscribers gets Sports Betting & Lotto Tickets
+							</h1>
+						</div>
+						<div className="w-full h-[75px] flex items-center justify-start px-2 border border-l-[#8D91BB]">
+							<h1 className="text-white">
+								One day free, then N 100 daily thereafter.
+							</h1>
+						</div>
+						<div className="w-full h-[75px] flex items-center justify-start px-2 border border-l-[#8D91BB]">
+							<h1 className="text-white">Daily</h1>
+						</div>
+					</div>
+				</div>
+				<div className="flex flex-col gap-2">
+					<h2 className="text-white text-xl font-extrabold leading-5">
+						Contact Us
+					</h2>
+					<p className="text-white text-base leading-5">help@play2win.com.ng</p>
+					<p className="text-white text-base leading-5">+2347057817249</p>
+				</div>
 			</div>
 		</div>
 	);
