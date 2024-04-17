@@ -241,6 +241,30 @@ const Navbar = (props: Props) => {
 											</div>
 										</Link>
 									</SheetTrigger>
+									<SheetTrigger asChild>
+										<Link
+											href="/help"
+											className="w-full h-[32px] p-2"
+										>
+											<div className="flex items-center gap-2 ">
+												{/* <svg
+												width="20"
+												height="20"
+												viewBox="0 0 20 20"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													fill-rule="evenodd"
+													clip-rule="evenodd"
+													d="M3.33301 15.6765V4.1665C3.33301 2.78579 4.4523 1.6665 5.83301 1.6665H14.1663C15.5471 1.6665 16.6663 2.78579 16.6663 4.1665V15.6765C16.6663 17.2799 14.9789 18.3228 13.5448 17.6057C13.404 17.5353 13.256 17.4806 13.1033 17.4424L10.606 16.8181C10.2079 16.7186 9.79144 16.7186 9.39334 16.8181L6.89604 17.4424C6.74337 17.4806 6.59533 17.5353 6.45457 17.6057C5.02041 18.3228 3.33301 17.2799 3.33301 15.6765ZM6.66634 4.99984C6.2061 4.99984 5.83301 5.37293 5.83301 5.83317C5.83301 6.29341 6.2061 6.6665 6.66634 6.6665H13.333C13.7932 6.6665 14.1663 6.29341 14.1663 5.83317C14.1663 5.37293 13.7932 4.99984 13.333 4.99984H6.66634ZM5.83301 9.99984C5.83301 9.5396 6.2061 9.1665 6.66634 9.1665H13.333C13.7932 9.1665 14.1663 9.5396 14.1663 9.99984C14.1663 10.4601 13.7932 10.8332 13.333 10.8332H6.66634C6.2061 10.8332 5.83301 10.4601 5.83301 9.99984ZM6.66634 13.3332C6.2061 13.3332 5.83301 13.7063 5.83301 14.1665C5.83301 14.6267 6.2061 14.9998 6.66634 14.9998H8.88856C9.3488 14.9998 9.7219 14.6267 9.7219 14.1665C9.7219 13.7063 9.3488 13.3332 8.88856 13.3332H6.66634ZM11.1108 13.3332C10.6505 13.3332 10.2775 13.7063 10.2775 14.1665C10.2775 14.6267 10.6505 14.9998 11.1108 14.9998H13.333C13.7932 14.9998 14.1663 14.6267 14.1663 14.1665C14.1663 13.7063 13.7932 13.3332 13.333 13.3332H11.1108Z"
+													fill="white"
+												/>
+											</svg> */}
+												<h1 className="text-white">Help</h1>
+											</div>
+										</Link>
+									</SheetTrigger>
 								</div>
 							</div>
 						</div>
@@ -292,6 +316,17 @@ const Navbar = (props: Props) => {
 								} h-[5px] rounded-[5px] bg-gradient-to-tr from-[#F002EE] to-[#8A0189]`}
 							/>
 						</Link>
+						<Link
+							href="/help"
+							className="cool-hover cursor-pointer"
+						>
+							<p className=" font-semibold">Help</p>
+							<div
+								className={`${
+									pathName === "/help" ? "flex" : "hidden"
+								} h-[5px] rounded-[5px] bg-gradient-to-tr from-[#F002EE] to-[#8A0189]`}
+							/>
+						</Link>
 					</div>
 					<div className="flex items-center gap-2">
 						{/* <div className="hidden xl:flex xl:relative h-11">
@@ -307,7 +342,7 @@ const Navbar = (props: Props) => {
 						</div> */}
 						<Popover>
 							<PopoverTrigger
-								className="hidden cursor-pointer"
+								className=" cursor-pointer"
 								asChild
 							>
 								<div className="flex items-center gap-2">
