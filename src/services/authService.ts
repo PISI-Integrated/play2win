@@ -2,6 +2,8 @@ import { TResendCode, TSignIn, TSignUp, TVerifyOtp } from "@/types";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+let token = Cookies.get("token");
+
 export const signUp = async (payload: TSignUp) => {
 	try {
 		const { data } = await axios.post(
@@ -126,3 +128,20 @@ export const resendCode = async (payload: TResendCode) => {
 		throw error;
 	}
 };
+
+export async function getMe() {
+	try {
+		const { data } = await axios.get(
+			`${process.env.NEXT_PUBLIC_URL}/users/me`,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
+		return data?.data;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+}

@@ -56,7 +56,7 @@ const HomePlayer = (props: Props) => {
 			<Card className="h-auto lg:h-[455px]  video-gradient card-gradient hover:border-[#f002ee] ">
 				<CardContent className="flex flex-col lg:flex-row items-start h-auto lg:h-[450px]">
 					<video
-						src="/assets/RaidShooter.MP4"
+						src="https://play2win-mp4.s3.eu-west-1.amazonaws.com/RaidShooter.mp4"
 						width="800"
 						height="400"
 						className="w-full xl:w-[600px] 2xl:w-full h-full rounded-[25px]"

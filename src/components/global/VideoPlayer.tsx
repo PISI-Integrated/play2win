@@ -54,7 +54,7 @@ const VideoPlayer = (props: Props) => {
 						/>
 					</div> */}
 					<video
-						src="/assets/DropBall.MP4"
+						src="https://play2win-mp4.s3.eu-west-1.amazonaws.com/DropBall.mp4"
 						width="800"
 						height="400"
 						className="w-full h-full"
