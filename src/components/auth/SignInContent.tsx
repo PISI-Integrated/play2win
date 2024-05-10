@@ -43,7 +43,7 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 				toast.success("You have successfully signed in");
 				Cookies.set("token", access_token);
 			} else {
-				toast.error(message);
+				toast.error(detail);
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
