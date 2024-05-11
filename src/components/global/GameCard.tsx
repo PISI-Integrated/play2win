@@ -12,6 +12,8 @@ import {
 } from "../ui/card";
 import { Dialog, Transition } from "@headlessui/react";
 import FinancialContent from "../modal-content/FinancialContent";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 type Props = {
 	content: string;
@@ -21,6 +23,7 @@ type Props = {
 };
 
 const GameCard = ({ img, content, gameName, tag }: Props) => {
+	const token = Cookies.get("token");
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
 		setIsOpen(false);
@@ -213,7 +216,14 @@ const GameCard = ({ img, content, gameName, tag }: Props) => {
 													{gameName === "RaidShooter" ? "₦100" : "Free"}
 												</h1>
 												<Button
-													onClick={openModal}
+													// onClick={openModal}
+													onClick={() => {
+														if (token) {
+															window.location.href = `https://playdev.play2win.com.ng?${token}`;
+														} else {
+															toast.error("Please login first to play");
+														}
+													}}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
 												>
 													{gameName === "RaidShooter"
