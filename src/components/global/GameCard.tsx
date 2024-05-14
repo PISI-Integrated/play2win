@@ -20,9 +20,10 @@ type Props = {
 	img: string;
 	gameName: string;
 	tag: string;
+	gameLink: string;
 };
 
-const GameCard = ({ img, content, gameName, tag }: Props) => {
+const GameCard = ({ img, content, gameName, tag, gameLink }: Props) => {
 	const token = Cookies.get("token");
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
@@ -219,7 +220,7 @@ const GameCard = ({ img, content, gameName, tag }: Props) => {
 													// onClick={openModal}
 													onClick={() => {
 														if (token) {
-															window.location.href = `https://playdev.play2win.com.ng?${token}`;
+															window.location.href = `${gameLink}?${token}`;
 														} else {
 															toast.error("Please login first to play");
 														}
