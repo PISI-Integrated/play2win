@@ -224,7 +224,7 @@ const HomePlayer = (props: Props) => {
 												<Button
 													onClick={() => {
 														if (token) {
-															window.location.href = `https://shooter.play2win.com.ng?${token}`;
+															window.location.href = `https://raidshooter.play2win.com.ng?${token}`;
 														} else {
 															toast.error("Please login first to play");
 														}
