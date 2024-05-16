@@ -131,20 +131,22 @@ const Navbar = (props: Props) => {
 							</div> */}
 
 							<div className="w-full flex flex-col gap-2">
-								{/* <div className="flex items-center justify-between">
+								<div className="flex items-center justify-between">
 									<h1 className="text-[#CCB7E6] dark:text-white text-xs md:text-sm font-medium">
 										Available balance:
 									</h1>
-									<p className="text-sm text-white font-medium">₦24,000</p>
+									<p className="text-sm text-white font-medium">
+										₦{data?.wallet_balance}
+									</p>
 								</div>
 								<div className="w-full flex items-center gap-2">
 									<Button
-												onClick={openPayModal}
-												className=" uppercase  text-xs text-white font-NunitoSans font-bold  primary-color rounded-full w-full h-[32px]"
-											>
-												<PlusIcon className="w-6 h-6 " />
-												Add money
-											</Button>
+										onClick={openPayModal}
+										className=" uppercase  text-xs text-white font-NunitoSans font-bold  primary-color rounded-full w-full h-[32px]"
+									>
+										<PlusIcon className="w-6 h-6 " />
+										Add money
+									</Button>
 									<Button
 										onClick={openPayModal}
 										className="bg-[#E903E733] rounded-[100px] w-full h-[32px] uppercase text-xs text-white font-NunitoSans font-bold border border-[#F002EE]"
@@ -152,7 +154,7 @@ const Navbar = (props: Props) => {
 										Withdraw
 										<MinusIcon className="w-6 h-6 " />
 									</Button>
-								</div> */}
+								</div>
 								<div className="w-full">
 									<SheetTrigger asChild>
 										<Link
@@ -395,12 +397,14 @@ const Navbar = (props: Props) => {
 									</div>
 
 									<div className="w-full flex flex-col gap-2">
-										{/* <div className="flex items-center justify-between">
+										<div className="flex items-center justify-between">
 											<h1 className="text-[#CCB7E6] dark:text-white text-xs md:text-sm font-medium">
 												Available balance:
 											</h1>
-											<p className="text-sm text-white font-medium">₦24,000</p>
-										</div> */}
+											<p className="text-sm text-white font-medium">
+												₦{data?.wallet_balance}
+											</p>
+										</div>
 										<div className="w-full flex items-center gap-2">
 											<Button
 												onClick={openPayModal}
