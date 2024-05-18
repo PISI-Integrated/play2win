@@ -82,7 +82,7 @@ export default function Home() {
 						<GameCard
 							gameName="HyperWin Slots"
 							gameLink="https://hyperwinslot.play2win.com.ng"
-							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
+							content="Spin the reels to win real cash in this hyperwin slots game."
 							img="/assets/HyperwinSlot.png"
 							tag="Singleplayer"
 						/>
