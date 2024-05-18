@@ -43,7 +43,7 @@ export default function Home() {
 					</Reveal>
 				</div>
 			</div>
-			<div className="w-full flex flex-col md:flex-row items-center gap-4 md:gap-0 md:justify-between  xl:p-0 xl:justify-between col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
+			<div className="w-full flex-wrap flex flex-col md:flex-row items-center gap-4 md:gap-2 md:justify-between  xl:p-0 xl:justify-normal col-span-3 overflow-x-auto overflow-y-hidden scrollbar-hide">
 				<div className="col-span-1 ">
 					<RevealHorizontal>
 						<GameCard
@@ -73,6 +73,17 @@ export default function Home() {
 							gameLink="https://dropball.play2win.com.ng"
 							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
 							img="/assets/DropBall.png"
+							tag="Singleplayer"
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="HyperWin Slots"
+							gameLink="https://hyperwinslot.play2win.com.ng"
+							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
+							img="/assets/HyperwinSlot.png"
 							tag="Singleplayer"
 						/>
 					</RevealHorizontal>

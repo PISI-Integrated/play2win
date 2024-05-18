@@ -22,10 +22,10 @@ export default function RootLayout({
 			<body className={inter.className}>
 				{" "}
 				<ThemeProvider
-					attribute="class"
-					defaultTheme="light"
-					enableSystem
-					disableTransitionOnChange
+				// attribute="class"
+				// defaultTheme="light"
+				// enableSystem
+				// disableTransitionOnChange
 				>
 					<div className="w-full h-auto gradient font-NunitoSans px-[20px] xl:px-[60px]">
 						<Navbar />
