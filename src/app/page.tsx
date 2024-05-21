@@ -88,6 +88,18 @@ export default function Home() {
 						/>
 					</RevealHorizontal>
 				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Sweet Sugar"
+							gameLink=""
+							content="Swap and match colorful candies to complete levels and enjoy the addictive gameplay. With hundreds of levels and vibrant graphics, it's the perfect treat for puzzle lovers!
+							Get ready for a sugary adventure!"
+							img="/assets/SweetSugar.png"
+							tag="Singleplayer"
+						/>
+					</RevealHorizontal>
+				</div>
 			</div>
 		</main>
 	);
