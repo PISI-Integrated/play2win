@@ -14,6 +14,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import FinancialContent from "../modal-content/FinancialContent";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
+import { xorEncrypt } from "@/lib/utils";
 
 type Props = {
 	content: string;
@@ -220,7 +221,9 @@ const GameCard = ({ img, content, gameName, tag, gameLink }: Props) => {
 													// onClick={openModal}
 													onClick={() => {
 														if (token) {
-															window.location.href = `${gameLink}?${token}`;
+															window.location.href = `${gameLink}?${xorEncrypt(
+																token
+															)}`;
 														} else {
 															toast.error("Please login first to play");
 														}
