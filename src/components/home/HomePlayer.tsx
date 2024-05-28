@@ -15,7 +15,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-import { xorEncrypt } from "@/lib/utils";
+import { encryptString, xorEncrypt } from "@/lib/utils";
 
 type Props = {};
 
@@ -225,7 +225,7 @@ const HomePlayer = (props: Props) => {
 												<Button
 													onClick={() => {
 														if (token) {
-															window.location.href = `https://raidshooter.play2win.com.ng?${xorEncrypt(
+															window.location.href = `https://raidshooter.play2win.com.ng?${encryptString(
 																token
 															)}`;
 														} else {
