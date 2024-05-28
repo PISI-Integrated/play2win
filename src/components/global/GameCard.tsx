@@ -14,7 +14,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import FinancialContent from "../modal-content/FinancialContent";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-import { xorEncrypt } from "@/lib/utils";
+import { encryptString, xorEncrypt } from "@/lib/utils";
 
 type Props = {
 	content: string;
@@ -221,7 +221,7 @@ const GameCard = ({ img, content, gameName, tag, gameLink }: Props) => {
 													// onClick={openModal}
 													onClick={() => {
 														if (token) {
-															window.location.href = `${gameLink}?${xorEncrypt(
+															window.location.href = `${gameLink}?${encryptString(
 																token
 															)}`;
 														} else {
