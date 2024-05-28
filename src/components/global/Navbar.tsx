@@ -426,12 +426,14 @@ const Navbar = (props: Props) => {
 							</PopoverContent>
 						</Popover>
 
-						<Button
-							onClick={openModal}
-							className=" uppercase primary-color rounded-full "
-						>
-							Sign up
-						</Button>
+						{data ? (
+							<Button
+								onClick={openModal}
+								className=" uppercase primary-color rounded-full "
+							>
+								Sign up
+							</Button>
+						) : null}
 
 						<Transition
 							appear
