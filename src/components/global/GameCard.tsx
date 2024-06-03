@@ -14,7 +14,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import FinancialContent from "../modal-content/FinancialContent";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-import { encryptString, xorEncrypt } from "@/lib/utils";
+import { encryptString } from "@/lib/utils";
 
 type Props = {
 	content: string;

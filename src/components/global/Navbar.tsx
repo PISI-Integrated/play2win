@@ -426,7 +426,7 @@ const Navbar = (props: Props) => {
 							</PopoverContent>
 						</Popover>
 
-						{data ? (
+						{!data ? (
 							<Button
 								onClick={openModal}
 								className=" uppercase primary-color rounded-full "

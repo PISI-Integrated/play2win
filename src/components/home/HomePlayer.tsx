@@ -15,7 +15,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-import { encryptString, xorEncrypt } from "@/lib/utils";
+import { encryptString } from "@/lib/utils";
 
 type Props = {};
 
