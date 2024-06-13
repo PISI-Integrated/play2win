@@ -13,10 +13,14 @@ import VideoJS from "../global/VideoJS";
 import { Button } from "../ui/button";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
+import { encryptString } from "@/lib/utils";
 
 type Props = {};
 
 const HomePlayer = (props: Props) => {
+	const token = Cookies.get("token");
 	const playerRef = React.useRef(null);
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
@@ -56,7 +60,7 @@ const HomePlayer = (props: Props) => {
 			<Card className="h-auto lg:h-[455px]  video-gradient card-gradient hover:border-[#f002ee] ">
 				<CardContent className="flex flex-col lg:flex-row items-start h-auto lg:h-[450px]">
 					<video
-						src="/assets/RaidShooter.MP4"
+						src="https://play2win-mp4.s3.eu-west-1.amazonaws.com/RaidShooter.mp4"
 						width="800"
 						height="400"
 						className="w-full xl:w-[600px] 2xl:w-full h-full rounded-[25px]"
@@ -219,7 +223,15 @@ const HomePlayer = (props: Props) => {
 											<div className="flex justify-between items-center px-4  py-6 ">
 												<h1 className="text-white text-[32px]">₦100</h1>
 												<Button
-													onClick={openModal}
+													onClick={() => {
+														if (token) {
+															window.location.href = `https://raidshooter.play2win.com.ng?${encryptString(
+																token
+															)}`;
+														} else {
+															toast.error("Please login first to play");
+														}
+													}}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
 												>
 													Subscribe to play

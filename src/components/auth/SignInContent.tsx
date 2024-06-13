@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { EyeNoneIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Props = {
 	handlerFunc: () => void;
@@ -17,6 +18,7 @@ type Props = {
 };
 
 const SignInContent = ({ handlerFunc, action }: Props) => {
+	const router = useRouter();
 	const [signInDetails, setSignInDetails] = useState<TSignIn>({
 		username: "+234",
 		password: "",
@@ -42,8 +44,9 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 				action();
 				toast.success("You have successfully signed in");
 				Cookies.set("token", access_token);
+				window.location.reload();
 			} else {
-				toast.error(message);
+				toast.error(detail);
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })

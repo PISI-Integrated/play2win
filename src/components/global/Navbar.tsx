@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { Fragment, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { Fragment, useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import {
 	ChevronDown,
@@ -33,12 +33,15 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import CustomButton from "../CustomButton";
 import PotentialContainer from "../PotentialContainer";
 import FinancialContent from "../modal-content/FinancialContent";
+import { useQuery } from "@tanstack/react-query";
+import { getMe } from "@/services";
 // border border-solid border-[#FFFFFF33] bg-gradient-to-br from-[#E863E833] via-[#72307100] to-[#0C0E45] bg-cover bg-no-repeat bg-fixed shadow-[#FFFFFF1A] bg-blur
 
 type Props = {};
 
 const Navbar = (props: Props) => {
 	const pathName = usePathname();
+	const router = useRouter();
 	let [isOpen, setIsOpen] = useState(false);
 	let [isOpen2, setIsOpen2] = useState(false);
 	let [isOpen3, setIsOpen3] = useState(false);
@@ -69,6 +72,12 @@ const Navbar = (props: Props) => {
 	function openPayModal() {
 		setIsPay(true);
 	}
+
+	const { data } = useQuery({
+		queryKey: ["user"],
+		queryFn: getMe,
+	});
+
 	// fixed inset-0 z-20
 	return (
 		<nav className="">
@@ -122,20 +131,22 @@ const Navbar = (props: Props) => {
 							</div> */}
 
 							<div className="w-full flex flex-col gap-2">
-								{/* <div className="flex items-center justify-between">
+								<div className="flex items-center justify-between">
 									<h1 className="text-[#CCB7E6] dark:text-white text-xs md:text-sm font-medium">
 										Available balance:
 									</h1>
-									<p className="text-sm text-white font-medium">₦24,000</p>
+									<p className="text-sm text-white font-medium">
+										₦{data?.wallet_balance}
+									</p>
 								</div>
 								<div className="w-full flex items-center gap-2">
 									<Button
-												onClick={openPayModal}
-												className=" uppercase  text-xs text-white font-NunitoSans font-bold  primary-color rounded-full w-full h-[32px]"
-											>
-												<PlusIcon className="w-6 h-6 " />
-												Add money
-											</Button>
+										onClick={openPayModal}
+										className=" uppercase  text-xs text-white font-NunitoSans font-bold  primary-color rounded-full w-full h-[32px]"
+									>
+										<PlusIcon className="w-6 h-6 " />
+										Add money
+									</Button>
 									<Button
 										onClick={openPayModal}
 										className="bg-[#E903E733] rounded-[100px] w-full h-[32px] uppercase text-xs text-white font-NunitoSans font-bold border border-[#F002EE]"
@@ -143,7 +154,7 @@ const Navbar = (props: Props) => {
 										Withdraw
 										<MinusIcon className="w-6 h-6 " />
 									</Button>
-								</div> */}
+								</div>
 								<div className="w-full">
 									<SheetTrigger asChild>
 										<Link
@@ -341,38 +352,46 @@ const Navbar = (props: Props) => {
 							<SearchIcon className=" text-white" />
 						</div> */}
 						<Popover>
-							<PopoverTrigger
-								className=" cursor-pointer"
-								asChild
-							>
-								<div className="flex items-center gap-2">
-									<Avatar>
-										<AvatarImage
-											src="https://github.com/shadcn.png"
-											alt="@shadcn"
-										/>
-										<AvatarFallback>CN</AvatarFallback>
-									</Avatar>
-								</div>
-							</PopoverTrigger>
+							{data ? (
+								<PopoverTrigger
+									className=" cursor-pointer"
+									asChild
+								>
+									<div className="flex items-center gap-2">
+										<Avatar>
+											<AvatarImage
+												src="https://github.com/shadcn.pn"
+												alt="@shadcn"
+											/>
+											<AvatarFallback>
+												{data?.username?.split("")[0]}
+											</AvatarFallback>
+										</Avatar>
+									</div>
+								</PopoverTrigger>
+							) : null}
 
 							<PopoverContent className="w-full md:w-full gradient rounded-[25px]">
 								<div className="w-full grid gap-4">
 									<div className="flex items-center gap-2">
 										<Avatar className="w-[60px] h-[60px]">
 											<AvatarImage
-												src="https://github.com/shadcn.png"
+												src="https://github.com/shadcn.p"
 												alt="@shadcn"
 											/>
-											<AvatarFallback>CN</AvatarFallback>
+											<AvatarFallback>
+												{data?.username?.split("")[0]}
+											</AvatarFallback>
 										</Avatar>
 										<div>
 											<h1 className="text-white dark:text-white text-sm md:text-base font-medium">
-												Joseph Keswet
+												{data?.username}
 											</h1>
 											<p className="text-[10px]  text-[#8D91BB] font-medium">
 												ID:{" "}
-												<span className="text-xs  text-[#8D91BB]">SL78903</span>
+												<span className="text-xs  text-[#8D91BB]">
+													{data?.id}
+												</span>
 											</p>
 										</div>
 									</div>
@@ -382,7 +401,9 @@ const Navbar = (props: Props) => {
 											<h1 className="text-[#CCB7E6] dark:text-white text-xs md:text-sm font-medium">
 												Available balance:
 											</h1>
-											<p className="text-sm text-white font-medium">₦24,000</p>
+											<p className="text-sm text-white font-medium">
+												₦{data?.wallet_balance}
+											</p>
 										</div>
 										<div className="w-full flex items-center gap-2">
 											<Button
@@ -405,12 +426,14 @@ const Navbar = (props: Props) => {
 							</PopoverContent>
 						</Popover>
 
-						<Button
-							onClick={openModal}
-							className=" uppercase primary-color rounded-full "
-						>
-							Sign up
-						</Button>
+						{!data ? (
+							<Button
+								onClick={openModal}
+								className=" uppercase primary-color rounded-full "
+							>
+								Sign up
+							</Button>
+						) : null}
 
 						<Transition
 							appear
