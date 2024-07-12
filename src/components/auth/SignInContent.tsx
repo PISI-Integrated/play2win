@@ -20,7 +20,7 @@ type Props = {
 const SignInContent = ({ handlerFunc, action }: Props) => {
 	const router = useRouter();
 	const [signInDetails, setSignInDetails] = useState<TSignIn>({
-		username: "+234",
+		username: "234",
 		password: "",
 	});
 

@@ -8,6 +8,8 @@ import { routes } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Home() {
+	const bacaratKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
+	const stringKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
 	return (
 		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
 			<div className="col-span-3 mb-6">
@@ -52,6 +54,7 @@ export default function Home() {
 							tag="Shooter | Top Down"
 							gameLink={routes.raidShooter}
 							img="/assets/RaidShooter.png"
+							stringKey=""
 							content={`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
 						/>
 					</RevealHorizontal>
@@ -64,6 +67,7 @@ export default function Home() {
 							content="Take control of a specialized spacecraft tasked with safeguarding a rocket from incoming waves of space debris."
 							img="/assets/Sharp.jpg"
 							tag="Hypercasual"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -75,6 +79,7 @@ export default function Home() {
 							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
 							img="/assets/DropBall.png"
 							tag="Singleplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -86,6 +91,7 @@ export default function Home() {
 							content="Spin the reels to win real cash in this hyperwin slots game."
 							img="/assets/HyperwinSlot.png"
 							tag="Singleplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -98,6 +104,7 @@ export default function Home() {
 							Get ready for a sugary adventure!"
 							img="/assets/SweetSugar.jpg"
 							tag="Singleplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -109,6 +116,7 @@ export default function Home() {
 							content=""
 							img="/assets/Baccarat.png"
 							tag="Singleplayer"
+							stringKey={bacaratKey}
 						/>
 					</RevealHorizontal>
 				</div>

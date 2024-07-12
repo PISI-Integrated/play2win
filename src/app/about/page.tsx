@@ -12,6 +12,8 @@ import { routes } from "@/lib/constants";
 type Props = {};
 
 const page = (props: Props) => {
+	const bacaratKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
+	const stringKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
 	return (
 		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
 			<div className="col-span-1 md:col-span-3">
@@ -47,6 +49,7 @@ const page = (props: Props) => {
 								gameName="RaidShooter"
 								gameLink={routes.raidShooter}
 								img="/assets/RaidShooter.png"
+								stringKey={stringKey}
 								content={`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
 							/>
 						</div>
@@ -57,6 +60,7 @@ const page = (props: Props) => {
 								tag="Hypercasual"
 								gameName="Space hazards & Asteroid Redirection Program"
 								gameLink={routes.spaceHazard}
+								stringKey={stringKey}
 								content="Take control of a specialized spacecraft tasked with safeguarding a rocket from incoming waves of space debris."
 								img="/assets/Sharp.jpg"
 							/>
@@ -67,6 +71,7 @@ const page = (props: Props) => {
 							<GameCard
 								gameName="Drop Ball"
 								gameLink={routes.dropBall}
+								stringKey={stringKey}
 								content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
 								img="/assets/DropBall.png"
 								tag="Singleplayer"
@@ -78,6 +83,7 @@ const page = (props: Props) => {
 							<GameCard
 								gameName="Sweet Sugar"
 								gameLink={routes.sweetCandy}
+								stringKey={stringKey}
 								content="Swap and match colorful candies to complete levels and enjoy the addictive gameplay. With hundreds of levels and vibrant graphics, it's the perfect treat for puzzle lovers!
 							Get ready for a sugary adventure!"
 								img="/assets/SweetSugar.jpg"
@@ -90,6 +96,7 @@ const page = (props: Props) => {
 							<GameCard
 								gameName="Baccarat"
 								gameLink={routes.baccarat}
+								stringKey={bacaratKey}
 								content="Baccarat offers a seamless and stylish way to play the classic card game, putting the thrill of the casino right at your fingertips."
 								img="/assets/Baccarat.png"
 								tag="Singleplayer"
@@ -104,6 +111,7 @@ const page = (props: Props) => {
 								content="Spin the reels to win real cash in this hyperwin slots game."
 								img="/assets/HyperwinSlot.png"
 								tag="Singleplayer"
+								stringKey={stringKey}
 							/>
 						</div>
 					</RevealHorizontal>
