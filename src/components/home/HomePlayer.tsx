@@ -21,6 +21,8 @@ type Props = {};
 
 const HomePlayer = (props: Props) => {
 	const token = Cookies.get("token");
+	const stringKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
+
 	const playerRef = React.useRef(null);
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
@@ -226,7 +228,8 @@ const HomePlayer = (props: Props) => {
 													onClick={() => {
 														if (token) {
 															window.location.href = `https://raidshooter.play2win.com.ng?${encryptString(
-																token
+																token,
+																stringKey
 															)}`;
 														} else {
 															toast.error("Please login first to play");
