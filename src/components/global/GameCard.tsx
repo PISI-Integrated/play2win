@@ -22,10 +22,19 @@ type Props = {
 	gameName: string;
 	tag: string;
 	gameLink: string;
+	stringKey: string;
 };
 
-const GameCard = ({ img, content, gameName, tag, gameLink }: Props) => {
+const GameCard = ({
+	img,
+	content,
+	gameName,
+	tag,
+	gameLink,
+	stringKey,
+}: Props) => {
 	const token = Cookies.get("token");
+
 	let [isOpen, setIsOpen] = useState(false);
 	function closeModal() {
 		setIsOpen(false);
@@ -222,7 +231,8 @@ const GameCard = ({ img, content, gameName, tag, gameLink }: Props) => {
 													onClick={() => {
 														if (token) {
 															window.location.href = `${gameLink}?${encryptString(
-																token
+																token,
+																stringKey
 															)}`;
 														} else {
 															toast.error("Please login first to play");

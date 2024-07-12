@@ -17,7 +17,7 @@ type Props = {
 
 const SignUpContent = ({ handlerFunc, action }: Props) => {
 	const [signUpDetails, setSignUpDetails] = useState<TSignUp>({
-		phone_number: "+234",
+		phone_number: "234",
 		password: "",
 		confirm_password: "",
 	});

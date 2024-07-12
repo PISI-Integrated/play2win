@@ -4,9 +4,12 @@ import GameCard from "@/components/global/GameCard";
 import VideoPlayer from "@/components/global/VideoPlayer";
 import HomePlayer from "@/components/home/HomePlayer";
 import { Button } from "@/components/ui/button";
+import { routes } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Home() {
+	const bacaratKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
+	const stringKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
 	return (
 		<main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-[50px] md:pb-[106px]">
 			<div className="col-span-3 mb-6">
@@ -49,8 +52,9 @@ export default function Home() {
 						<GameCard
 							gameName="RaidShooter"
 							tag="Shooter | Top Down"
-							gameLink="https://raidshooter.play2win.com.ng"
+							gameLink={routes.raidShooter}
 							img="/assets/RaidShooter.png"
+							stringKey=""
 							content={`Blast through enemy infested rooms, collect deadly weapons and upgrade your arsenal in Raid Shooter, the top down shooter where you unlock guns, characters, and pure action.`}
 						/>
 					</RevealHorizontal>
@@ -59,10 +63,11 @@ export default function Home() {
 					<RevealHorizontal>
 						<GameCard
 							gameName="Space hazards & Asteroid Redirection Program"
-							gameLink="https://spacehazards.play2win.com.ng"
+							gameLink={routes.spaceHazard}
 							content="Take control of a specialized spacecraft tasked with safeguarding a rocket from incoming waves of space debris."
 							img="/assets/Sharp.jpg"
 							tag="Hypercasual"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -70,10 +75,11 @@ export default function Home() {
 					<RevealHorizontal>
 						<GameCard
 							gameName="Drop Ball"
-							gameLink="https://dropball.play2win.com.ng"
+							gameLink={routes.dropBall}
 							content="Test your anticipation skills as you predict the ball's  trajectory and craft platforms to safely guide it into the cup."
 							img="/assets/DropBall.png"
 							tag="Singleplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -81,10 +87,11 @@ export default function Home() {
 					<RevealHorizontal>
 						<GameCard
 							gameName="HyperWin Slots"
-							gameLink="https://hyperwinslot.play2win.com.ng"
+							gameLink={routes.hyperWinSlots}
 							content="Spin the reels to win real cash in this hyperwin slots game."
 							img="/assets/HyperwinSlot.png"
 							tag="Singleplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
@@ -92,11 +99,24 @@ export default function Home() {
 					<RevealHorizontal>
 						<GameCard
 							gameName="Sweet Sugar"
-							gameLink="https://codeberg-io.itch.io/sweet-candy"
+							gameLink={routes.sweetCandy}
 							content="Swap and match colorful candies to complete levels and enjoy the addictive gameplay. With hundreds of levels and vibrant graphics, it's the perfect treat for puzzle lovers!
 							Get ready for a sugary adventure!"
 							img="/assets/SweetSugar.jpg"
 							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Baccarat"
+							gameLink={routes.baccarat}
+							content=""
+							img="/assets/Baccarat.png"
+							tag="Singleplayer"
+							stringKey={bacaratKey}
 						/>
 					</RevealHorizontal>
 				</div>

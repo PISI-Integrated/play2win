@@ -6,9 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export function encryptString(stringToEncrypt: string) {
-	let stringKey = process.env.NEXT_PUBLIC_SECRET_KEY as string;
-
+export function encryptString(stringToEncrypt: string, stringKey: string) {
 	// Hash the key using SHA-256 to get a 256-bit key
 	let hashedKey = CryptoJS.SHA256(stringKey).toString(CryptoJS.enc.Hex);
 	let key = CryptoJS.enc.Hex.parse(hashedKey);
