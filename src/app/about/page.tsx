@@ -115,6 +115,42 @@ const page = (props: Props) => {
 							/>
 						</div>
 					</RevealHorizontal>
+					<RevealHorizontal>
+						<div className="mt-4">
+						<GameCard
+							gameName="Rogue Rebels"
+							gameLink={routes.rogueRebels}
+							content="Team up with friends or go rogue solo in this action shooter game. Blast your enemies and win the game by being the last rebel standing."
+							img="/assets/RogueRebels.png"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+						</div>
+					</RevealHorizontal>
+					<RevealHorizontal>
+						<div className="mt-4">
+						<GameCard
+							gameName="Roulette"
+							gameLink={routes.roulette}
+							content="Place your bets on red, black, or your favorite numbers and watch the wheel spin in Roulette. Experience the thrill of the casino as you aim for big wins in this classic game of chance and strategy."
+							img="/assets/Roulette.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+						</div>
+					</RevealHorizontal>
+					<RevealHorizontal>
+						<div className="mt-4">
+						<GameCard
+							gameName="Car Chase"
+							gameLink={routes.carChase}
+							content="Speed through city streets and evade the cops in Car Chase. Dodge obstacles and outmaneuver your pursuers in this adrenaline-pumping racing game."
+							img="/assets/CarChase.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+						</div>
+					</RevealHorizontal>
 				</div>
 			</div>
 			<div className="col-span-1 md:col-span-2">

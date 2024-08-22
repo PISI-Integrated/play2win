@@ -113,10 +113,70 @@ export default function Home() {
 						<GameCard
 							gameName="Baccarat"
 							gameLink={routes.baccarat}
-							content=""
+							content="Play, win, and enjoy the elegance of classic Baccarat gameplay."
 							img="/assets/Baccarat.png"
 							tag="Singleplayer"
 							stringKey={bacaratKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Rogue Rebels"
+							gameLink={routes.rogueRebels}
+							content="Team up with friends or go rogue solo in this action shooter game. Blast your enemies and win the game by being the last rebel standing."
+							img="/assets/RogueRebels.png"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Roulette"
+							gameLink={routes.roulette}
+							content="Place your bets on red, black, or your favorite numbers and watch the wheel spin in Roulette. Experience the thrill of the casino as you aim for big wins in this classic game of chance and strategy."
+							img="/assets/Roulette.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Car Chase"
+							gameLink={routes.carChase}
+							content="Speed through city streets and evade the cops in Car Chase. Dodge obstacles and outmaneuver your pursuers in this adrenaline-pumping racing game."
+							img="/assets/CarChase.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Sugar Rush"
+							gameLink={routes.sugarRush}
+							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
+							img="/assets/SugarRush.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Casino"
+							gameLink={routes.casino}
+							content="Enter the exciting world of Casino, where luck and strategy bring big wins and endless fun."
+							img="/assets/Casino.jpg"
+							tag="Multiplayer"
+							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
 				</div>
