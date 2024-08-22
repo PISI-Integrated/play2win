@@ -162,7 +162,7 @@ export default function Home() {
 							gameName="Sugar Rush"
 							gameLink={routes.sugarRush}
 							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
-							img="/assets/CarChase.jpg"
+							img="/assets/SugarRush.jpg"
 							tag="Singleplayer"
 							stringKey={stringKey}
 						/>
@@ -173,8 +173,8 @@ export default function Home() {
 						<GameCard
 							gameName="Casino"
 							gameLink={routes.casino}
-							content="Speed through city streets and evade the cops in Car Chase. Dodge obstacles and outmaneuver your pursuers in this adrenaline-pumping racing game."
-							img="/assets/CarChase.jpg"
+							content="Enter the exciting world of Casino, where luck and strategy bring big wins and endless fun."
+							img="/assets/Casino.jpg"
 							tag="Multiplayer"
 							stringKey={stringKey}
 						/>
