@@ -113,7 +113,7 @@ export default function Home() {
 						<GameCard
 							gameName="Baccarat"
 							gameLink={routes.baccarat}
-							content=""
+							content="Play, win, and enjoy the elegance of classic Baccarat gameplay."
 							img="/assets/Baccarat.png"
 							tag="Singleplayer"
 							stringKey={bacaratKey}
@@ -152,6 +152,30 @@ export default function Home() {
 							content="Speed through city streets and evade the cops in Car Chase. Dodge obstacles and outmaneuver your pursuers in this adrenaline-pumping racing game."
 							img="/assets/CarChase.jpg"
 							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Sugar Rush"
+							gameLink={routes.sugarRush}
+							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
+							img="/assets/CarChase.jpg"
+							tag="Singleplayer"
+							stringKey={stringKey}
+						/>
+					</RevealHorizontal>
+				</div>
+				<div className="col-span-1">
+					<RevealHorizontal>
+						<GameCard
+							gameName="Casino"
+							gameLink={routes.casino}
+							content="Speed through city streets and evade the cops in Car Chase. Dodge obstacles and outmaneuver your pursuers in this adrenaline-pumping racing game."
+							img="/assets/CarChase.jpg"
+							tag="Multiplayer"
 							stringKey={stringKey}
 						/>
 					</RevealHorizontal>
