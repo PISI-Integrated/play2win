@@ -5,7 +5,7 @@ export const routes = {
 	sweetCandy: "https://sweetcandy.play2win.com.ng",
 	baccarat: "https://baccarat.play2win.com.ng",
 	hyperWinSlots: "https://hyperwinslot.play2win.com.ng",
-	rogueRebels:"",
+	rogueRebels:"https://roguerebels.play2win.com.ng ",
 	roulette:"",
 	carChase:"",
 	sugarRush:"",
