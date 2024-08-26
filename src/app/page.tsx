@@ -161,7 +161,7 @@ export default function Home() {
 						<GameCard
 							gameName="Sweet Sugar"
 							gameLink={routes.sugarRush}
-							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
+							content="A candy-themed lottery game where matching treats leads to exciting prizes. Play, match, and win big!"
 							img="/assets/sweet-sugar.jpg"
 							tag="Singleplayer"
 							stringKey={stringKey}
