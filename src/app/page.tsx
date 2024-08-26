@@ -98,11 +98,11 @@ export default function Home() {
 				<div className="col-span-1">
 					<RevealHorizontal>
 						<GameCard
-							gameName="Sweet Sugar"
+							gameName="Candy Pop"
 							gameLink={routes.sweetCandy}
 							content="Swap and match colorful candies to complete levels and enjoy the addictive gameplay. With hundreds of levels and vibrant graphics, it's the perfect treat for puzzle lovers!
 							Get ready for a sugary adventure!"
-							img="/assets/SweetSugar.jpg"
+							img="/assets/candy-pop.jpg"
 							tag="Singleplayer"
 							stringKey={stringKey}
 						/>
@@ -159,10 +159,10 @@ export default function Home() {
 				<div className="col-span-1">
 					<RevealHorizontal>
 						<GameCard
-							gameName="Sugar Rush"
+							gameName="Sweet Sugar"
 							gameLink={routes.sugarRush}
 							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
-							img="/assets/SugarRush.jpg"
+							img="/assets/sweet-sugar.jpg"
 							tag="Singleplayer"
 							stringKey={stringKey}
 						/>
