@@ -157,7 +157,7 @@ const GameCard = ({
 
 											<div className="flex justify-between items-center px-4  py-6 ">
 												<h1 className="text-white text-[32px]">
-												{["Baccarat", "Sugar Rush", "Roulette", "Casino", "HyperWin Slots"].includes(gameName)
+												{["Baccarat", "Sweet Sugar", "Roulette", "Casino", "HyperWin Slots"].includes(gameName)
 													? "₦100"
 													: "Free"}
 												</h1>
