@@ -162,7 +162,7 @@ export default function Home() {
 							gameName="Sugar Rush"
 							gameLink={routes.sugarRush}
 							content="Race through vibrant candy-themed worlds in Sugar Rush! Collect sweet rewards, avoid tricky obstacles, and outpace your competition in this colorful, fast-paced adventure. Can you become the ultimate sugar champion?"
-							img="/assets/sugarRush.jpg"
+							img="/assets/SugarRush.jpg"
 							tag="Singleplayer"
 							stringKey={stringKey}
 						/>
