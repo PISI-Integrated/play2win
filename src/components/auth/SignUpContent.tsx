@@ -55,7 +55,7 @@ const SignUpContent = ({ handlerFunc, action }: Props) => {
 			return;
 		} else {
 			const payload = {
-				password: signUpDetails.password,
+				password: signUpDetails.password, 
 				phone_number: signUpDetails.phone_number,
 			};
 			signUpMutation({ ...payload });

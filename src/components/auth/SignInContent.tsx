@@ -45,6 +45,7 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 				toast.success("You have successfully signed in");
 				Cookies.set("token", access_token);
 				window.location.reload();
+				console.log(access_token)
 			} else {
 				toast.error(detail);
 			}
@@ -60,6 +61,13 @@ const SignInContent = ({ handlerFunc, action }: Props) => {
 		const formData = new FormData();
 		formData.append("username", signInDetails.username);
 		formData.append("password", signInDetails.password);
+
+		// Log the data being sent
+		console.log("FormData being sent:", {
+			username: signInDetails.username,
+			password: signInDetails.password
+		});
+	
 
 		signInMutation(formData);
 	}
