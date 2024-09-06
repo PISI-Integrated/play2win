@@ -92,6 +92,27 @@ export const verifyOtp = async (payload: TVerifyOtp) => {
 	}
 };
 
+export const requestPasswordReset = async (phoneNumber: string) => {
+	try {
+	  const { data } = await axios.post(
+		`${process.env.NEXT_PUBLIC_URL}/auth/request-password-reset`,
+		{ phone_number: phoneNumber }
+	  );
+	  return data;
+	} catch (error: any) {
+	  if (axios.isAxiosError(error)) {
+		const axiosError = error;
+		if (axiosError.response) {
+		  const errorMessage = axiosError?.response?.data?.message;
+		  console.error("Error:", errorMessage);
+		  throw axiosError.response.data;
+		}
+	  }
+	  console.error("Error:", error.message);
+	  throw error;
+	}
+  };
+
 export const resendCode = async (payload: TResendCode) => {
 	try {
 		const { data } = await axios.post(
