@@ -15,3 +15,9 @@ export interface TVerifyOtp {
 export type TResendCode = {
 	phone_number: string;
 };
+
+export interface TReset {
+	phone_number: string;
+	token?: string
+	password?: string;
+}
