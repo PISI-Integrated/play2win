@@ -372,7 +372,7 @@ const Navbar = (props: Props) => {
                             <h1 className="text-[32px] text-white font-NunitoSans font-semibold">
                               Create an account
                             </h1>
-                            <XIcon className="flex md:hidden text-white" />
+                            <XIcon onClick={closeModal} className="flex md:hidden text-white" />
                           </div>
                         </Dialog.Title>
                         <SignUpContent
@@ -424,7 +424,7 @@ const Navbar = (props: Props) => {
                             <h1 className="text-[32px] text-white font-NunitoSans font-semibold">
                               Sign In
                             </h1>
-                            <XIcon className="flex md:hidden text-white" />
+                            <XIcon onClick={closeModal2} className="flex md:hidden text-white" />
                           </div>
                         </Dialog.Title>
                         <SignInContent
