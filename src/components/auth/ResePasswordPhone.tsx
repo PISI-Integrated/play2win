@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { requestPasswordReset } from "@/services"; // Assuming the service is here
+import { requestPasswordReset } from "@/services";
 
 type Props = {
   handlerFunc: () => void;
@@ -23,7 +23,7 @@ const ResetPasswordPhone = ({ action }: Props) => {
 
   // Setting up mutation like in SignInContent
   const { mutate: sendResetToken, isPending } = useMutation({
-    mutationFn: (phoneNumber: string) => requestPasswordReset(phoneNumber), // Accepting phoneNumber as a string
+    mutationFn: (phoneNumber: string) => requestPasswordReset(phoneNumber),
     onSuccess: () => {
       toast.success("Reset token sent successfully!");
       action(); // Move to the next modal for token/password input
@@ -36,8 +36,14 @@ const ResetPasswordPhone = ({ action }: Props) => {
   });
 
   function handleReset() {
-    // Log the data being sent
+    // Log the phone number being sent for verification
     console.log("Phone number being sent:", phoneNumber);
+
+    // Optionally validate phone number format before sending
+    if (!phoneNumber.startsWith("234") || phoneNumber.length < 10) {
+      toast.error("Invalid phone number format");
+      return;
+    }
 
     // Send the request using mutate with phoneNumber as the argument
     sendResetToken(phoneNumber);

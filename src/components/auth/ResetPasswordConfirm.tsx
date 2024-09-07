@@ -5,8 +5,8 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { resetPasswordConfirm } from "@/services";  // Import the service function
 
 type Props = {
   action: () => void; // Called when password reset is successful
@@ -14,7 +14,7 @@ type Props = {
 
 const ResetPasswordConfirm = ({ action }: Props) => {
   const [formDetails, setFormDetails] = useState({
-    phone: "234",
+    phone: "234",  // Default value for the phone number
     token: "",
     newPassword: "",
     confirmPassword: "",
@@ -27,30 +27,31 @@ const ResetPasswordConfirm = ({ action }: Props) => {
 
   const { mutate: resetPassword, isPending } = useMutation({
     mutationFn: async () => {
-      if (formDetails.newPassword !== formDetails.confirmPassword) {
-        throw new Error("Passwords do not match");
-      }
-
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_URL}/auth/reset-password`,
-        {
-            phone_number: formDetails.phone,
-            verification_code: formDetails.token,
-            newPassword: formDetails.newPassword,
-        }
-      );
-      return response.data;
+      // The API call only occurs if the passwords match, which is validated before this point
+      return resetPasswordConfirm(formDetails.phone, formDetails.token, formDetails.newPassword);
     },
     onSuccess: () => {
       toast.success("Password reset successfully!");
-      action(); // Close modal or redirect user
+      action();  // Close modal or redirect user after success
     },
     onError: (error: any) => {
+      // Display appropriate error message
       toast.error(
         error?.response?.data?.message || "Failed to reset password"
       );
     },
   });
+
+  const handleSubmit = () => {
+    // Check if newPassword and confirmPassword are the same
+    if (formDetails.newPassword !== formDetails.confirmPassword) {
+      toast.error("Passwords do not match");
+      return; // Return early if passwords do not match
+    }
+
+    // Proceed with the mutation if the passwords match
+    resetPassword();
+  };
 
   return (
     <div>
@@ -105,7 +106,7 @@ const ResetPasswordConfirm = ({ action }: Props) => {
       <div className="flex items-center justify-end">
         <Button
           type="submit"
-          onClick={() => resetPassword()}
+          onClick={handleSubmit}  // Trigger the handleSubmit function
           disabled={isPending}
           className="bg-[#E903E733] hover:bg-[#E903E733] border border-[#F002EE] text-xs uppercase px-11"
         >
