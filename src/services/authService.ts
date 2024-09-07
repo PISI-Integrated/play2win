@@ -197,19 +197,27 @@ export const resendCode = async (payload: TResendCode) => {
 	}
 };
 
+
+
 export async function getMe() {
-	try {
-		const { data } = await axios.get(
-			`${process.env.NEXT_PUBLIC_URL}/users/me`,
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
-		);
-		return data?.data;
-	} catch (error) {
-		console.log(error);
-		throw error;
+try {
+	const { data } = await axios.get(
+	`${process.env.NEXT_PUBLIC_URL}/users/me`,
+	{
+		headers: {
+		Authorization: `Bearer ${token}`,
+		},
 	}
+	);
+
+	// After successfully fetching the data, check if country exists
+	if (data?.data?.country) {
+	Cookies.set("country", data?.data?.country);
+	}
+
+	return data?.data;
+} catch (error) {
+	console.log(error);
+	throw error;
+}
 }
