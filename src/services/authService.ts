@@ -94,6 +94,10 @@ export const verifyOtp = async (payload: TVerifyOtp) => {
 
 export const requestPasswordReset = async (phoneNumber: string) => {
 	try {
+	  // Log the phone number and endpoint URL for debugging
+	  console.log("Phone number in request:", phoneNumber);
+	  console.log("Reset password endpoint:", `${process.env.NEXT_PUBLIC_URL}/auth/request-password-reset`);
+  
 	  const { data } = await axios.post(
 		`${process.env.NEXT_PUBLIC_URL}/auth/request-password-reset`,
 		{ phone_number: phoneNumber }
@@ -101,14 +105,51 @@ export const requestPasswordReset = async (phoneNumber: string) => {
 	  return data;
 	} catch (error: any) {
 	  if (axios.isAxiosError(error)) {
-		const axiosError = error;
-		if (axiosError.response) {
-		  const errorMessage = axiosError?.response?.data?.message;
-		  console.error("Error:", errorMessage);
-		  throw axiosError.response.data;
+		// Log the full error response for debugging
+		console.error("Axios Error Response:", error?.response?.data);
+  
+		if (error.response) {
+		  const errorMessage = error.response.data?.message;
+		  console.error("Backend error message:", errorMessage);
+		  throw error.response.data;
 		}
 	  }
-	  console.error("Error:", error.message);
+	  // Log other types of errors
+	  console.error("Error message:", error.message);
+	  throw error;
+	}
+  };
+
+  export const resetPasswordConfirm = async (phone: string, token: string, newPassword: string) => {
+	try {
+	  // Log the request details for debugging
+	  console.log("Reset password request details:", { phone, token, newPassword });
+	  
+	  const { data } = await axios.post(
+		`${process.env.NEXT_PUBLIC_URL}/auth/reset-password`,
+		{
+		  phone_number: phone,
+		  verification_code: token,
+		  new_password: newPassword,
+		}
+	  );
+  
+	  // Log the response data
+	  console.log("Response from reset password API:", data);
+  
+	  return data;
+	} catch (error: any) {
+	  if (axios.isAxiosError(error)) {
+		// Log the full Axios error response for better debugging
+		console.error("Axios Error Response:", error?.response?.data);
+  
+		if (error.response) {
+		  const errorMessage = error.response.data?.message;
+		  console.error("Backend error message:", errorMessage);
+		  throw error.response.data;
+		}
+	  }
+	  console.error("Error message:", error.message);
 	  throw error;
 	}
   };

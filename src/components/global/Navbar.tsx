@@ -535,7 +535,7 @@ const Navbar = (props: Props) => {
                             <h1 className="text-[32px] text-white font-NunitoSans font-semibold">
                               Reset Password
                             </h1>
-                            <XIcon className="flex md:hidden text-white" />
+                            <XIcon onClick={closeModalForgotPassword} className="flex md:hidden text-white" />
                           </div>
                         </Dialog.Title>
                         <ResetPasswordPhone
@@ -591,7 +591,7 @@ const Navbar = (props: Props) => {
                             <h1 className="text-[32px] text-white font-NunitoSans font-semibold">
                               Confirm New Password
                             </h1>
-                            <XIcon className="flex md:hidden text-white" />
+                            <XIcon onClick={closeModalResetPassword} className="flex md:hidden text-white" />
                           </div>
                         </Dialog.Title>
                         <ResetPasswordConfirm
