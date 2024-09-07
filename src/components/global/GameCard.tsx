@@ -262,7 +262,7 @@ const GameCard = ({
 												}}
 												className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px] h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE] mt-4 sm:mt-0"
 											>
-												{["Baccarat", "Sugar Rush", "Roulette", "Casino", "HyperWin Slots"].includes(gameName)
+												{["Baccarat", "Sweet Sugar", "Sugar Rush", "Roulette", "Casino", "HyperWin Slots"].includes(gameName)
 													? "Subscribe To Play"
 													: "Play"}
 											</Button>
