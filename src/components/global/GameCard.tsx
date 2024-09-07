@@ -61,7 +61,7 @@ const GameCard = ({
 			case "Candy Pop Slots":
 			case "Rogue Rebels":
 			case "Car Chase":
-				return null; // Return null for these games as per your instruction
+				return null;
 			case "Baccarat Slots":
 				return "baccarat";
 			case "Roulette":
@@ -112,8 +112,8 @@ const GameCard = ({
 
 	// Determine if the game should display a price
 	const getPriceDisplay = (gameName: string) => {
-		const freeGames = ["Drop Ball", "Space Hazard"];
-		const lotteryGames = ["HyperWin Slots", "Roulette", "Baccarat", "Sweet Sugar", "Casino Multiplayer"];
+		const freeGames = ["Drop Ball", "Space Hazard", "RaidShooter"];
+		const lotteryGames = ["HyperWin Slots", "Roulette", "Baccarat", "Sweet Sugar", "Casino"];
 
 		if (freeGames.includes(gameName)) {
 			// Free games, no price
