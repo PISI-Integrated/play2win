@@ -1,3 +1,4 @@
+"use client";
 import React, { ChangeEvent, useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -33,15 +34,16 @@ const SignUpContent = ({ action, switchToSignIn }: Props) => {
   const { mutate: signUpMutation, isPending } = useMutation({
     mutationFn: signUp,
     onSuccess: ({ success, message }) => {
-      if (success === true) {
+      if (success) {
         action();
         toast.success(message);
       } else {
         toast.error(message);
       }
     },
-    onError: ({ message }) => {
-      toast.error(message);
+    onError: (error: any) => {
+      // Display the error message thrown in the signUp function
+      toast.error(error.message || "Failed to sign up");
     },
   });
 

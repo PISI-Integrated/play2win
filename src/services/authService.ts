@@ -6,33 +6,47 @@ let token = Cookies.get("token");
 
 export const signUp = async (payload: TSignUp) => {
 	try {
-		const { data } = await axios.post(
-			`${process.env.NEXT_PUBLIC_URL}/auth/register`,
-			payload
-			
-		);
-		return data;
+	  const { data } = await axios.post(
+		`${process.env.NEXT_PUBLIC_URL}/auth/register`,
+		payload
+	  );
+	  return data;
 	} catch (error: any) {
-		if (axios.isAxiosError(error)) {
-			const axiosError = error;
-			if (axiosError.response) {
-				// Accessing the error message from the response data
-				const errorMessage = axiosError?.response?.data?.message;
-				// toast(errorMessage, {
-				// 	// description: "Sunday, December 03, 2023 at 9:00 AM",
-				// 	action: {
-				// 		label: "Undo",
-				// 		onClick: () => console.log("Undo"),
-				// 	},
-				// });
-				return axiosError?.response?.data;
-			}
+	  if (axios.isAxiosError(error)) {
+		const axiosError = error;
+  
+		// Log the entire response to get a complete picture
+		console.error("Full error response:", axiosError.response);
+  
+		if (axiosError.response) {
+		  // Log individual parts of the error response for debugging
+		  console.log("Data part:", axiosError.response.data);
+		  console.log("Status part:", axiosError.response.status);
+		  console.log("Status text part:", axiosError.response.statusText);
+  
+		  // Try multiple paths for extracting the error message
+		  const errorMessage = axiosError.response.data?.message || 
+							   axiosError.response.data?.error?.message || 
+							   axiosError.response.data?.error_description ||
+							   axiosError.response.statusText || 
+							   "Failed to sign up";
+  
+		  // Log the extracted error message for further inspection
+		  console.log("Extracted error message:", errorMessage);
+  
+		  // Throw the extracted error message
+		  throw new Error(errorMessage);
 		}
-		// Handle other errors
-		console.error("Error:", error.message);
-		throw error;
+	  }
+	  // Handle other generic errors
+	  console.error("Error:", error.message);
+	  throw error;
 	}
-};
+  };
+  
+  
+  
+  
 
 export const signIn = async (formData: FormData) => {
 	try {
