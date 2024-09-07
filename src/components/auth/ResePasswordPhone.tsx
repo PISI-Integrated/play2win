@@ -9,6 +9,7 @@ import { ReloadIcon } from "@radix-ui/react-icons";
 import { requestPasswordReset } from "@/services"; // Assuming the service is here
 
 type Props = {
+  handlerFunc: () => void;
   action: () => void; // Called when moving to the next step
 };
 
