@@ -135,6 +135,50 @@ const Navbar = (props: {}) => {
               </div>
             ) : null}
 
+            {/* Sign Up Modal */}
+            <Transition appear show={isOpenSignUp} as={Fragment}>
+              <Dialog as="div" className="relative z-10" onClose={closeModalSignUp}>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <div className="fixed inset-0 bg-[#00000099]" />
+                </Transition.Child>
+
+                <div className="fixed inset-0 overflow-y-auto">
+                  <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 scale-95"
+                      enterTo="opacity-100 scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 scale-100"
+                      leaveTo="opacity-0 scale-95"
+                    >
+                      <Dialog.Panel className="bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
+						<Dialog.Title className="text-[32px] text-white font-NunitoSans font-semibold">
+						Sign Up
+						</Dialog.Title>
+						<SignUpContent
+						action={closeModalSignUp}
+						switchToSignIn={() => {
+							closeModalSignUp();
+							openModalSignIn();
+						}}
+						/>
+          			</Dialog.Panel>
+                    </Transition.Child>
+                  </div>
+                </div>
+              </Dialog>
+            </Transition>
+
             {/* Sign In Modal */}
             <Transition appear show={isOpenSignIn} as={Fragment}>
               <Dialog as="div" className="relative z-10" onClose={closeModalSignIn}>
@@ -166,61 +210,14 @@ const Navbar = (props: {}) => {
                           Sign In
                         </Dialog.Title>
                         <SignInContent
-							handlerFunc={() => {
-								closeModalSignIn();  
-								openModalSignUp();    
-							}}
-							action={closeModalSignIn} 
-							forgotPasswordFunc={() => {
-								closeModalSignIn();  
-								openModalForgotPassword();  
-							}}
-						/>
-                      </Dialog.Panel>
-                    </Transition.Child>
-                  </div>
-                </div>
-              </Dialog>
-            </Transition>
-
-            {/* Forgot Password Modal - Phone Input */}
-            <Transition appear show={isOpenForgotPassword} as={Fragment}>
-              <Dialog
-                as="div"
-                className="relative z-10"
-                onClose={closeModalForgotPassword}
-              >
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <div className="fixed inset-0 bg-[#00000099]" />
-                </Transition.Child>
-
-                <div className="fixed inset-0 overflow-y-auto">
-                  <div className="flex min-h-full items-center justify-center p-4 text-center">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0 scale-95"
-                      enterTo="opacity-100 scale-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100 scale-100"
-                      leaveTo="opacity-0 scale-95"
-                    >
-                      <Dialog.Panel className="bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
-                        <Dialog.Title className="text-[32px] text-white font-NunitoSans font-semibold">
-                          Reset Password
-                        </Dialog.Title>
-                        <ResetPasswordPhone
-                          action={() => {
-                            closeModalForgotPassword();
-                            openModalResetPassword();
+                          handlerFunc={() => {
+                            closeModalSignIn();
+                            openModalSignUp();
+                          }}
+                          action={closeModalSignIn}
+                          forgotPasswordFunc={() => {
+                            closeModalSignIn();
+                            openModalForgotPassword();
                           }}
                         />
                       </Dialog.Panel>
@@ -230,47 +227,8 @@ const Navbar = (props: {}) => {
               </Dialog>
             </Transition>
 
-            {/* Reset Password Modal - Token, New Password */}
-            <Transition appear show={isOpenResetPassword} as={Fragment}>
-              <Dialog
-                as="div"
-                className="relative z-10"
-                onClose={closeModalResetPassword}
-              >
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <div className="fixed inset-0 bg-[#00000099]" />
-                </Transition.Child>
-
-                <div className="fixed inset-0 overflow-y-auto">
-                  <div className="flex min-h-full items-center justify-center p-4 text-center">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0 scale-95"
-                      enterTo="opacity-100 scale-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100 scale-100"
-                      leaveTo="opacity-0 scale-95"
-                    >
-                      <Dialog.Panel className="bg-gradient-to-br via-[#0C0E45] to-[#8A0189] from-[#0C0E45] w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
-                        <Dialog.Title className="text-[32px] text-white font-NunitoSans font-semibold">
-                          Reset Password
-                        </Dialog.Title>
-                        <ResetPasswordConfirm action={closeModalResetPassword} />
-                      </Dialog.Panel>
-                    </Transition.Child>
-                  </div>
-                </div>
-              </Dialog>
-            </Transition>
+            {/* Forgot Password Modal */}
+            {/* Reset Password Modals... */}
           </div>
         </div>
       </div>
