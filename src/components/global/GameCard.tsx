@@ -76,7 +76,7 @@ const GameCard = ({
 
 	// Fetch game data when modal opens
 	useEffect(() => {
-		if (isOpen) {
+		if (isOpen && !["RaidShooter", "Space hazards & Asteroid Redirection Program", "Drop Ball", "Candy Pop Slots", "Car Chase", "Rogue Rebels"].includes(gameName)) {
 			const gameIdentifier = getGameIdentifier(gameName);
 			if (!gameIdentifier) return;
 
@@ -98,6 +98,12 @@ const GameCard = ({
 				.catch((error) => {
 					console.error(error);
 				});
+		} else {
+			// Override can_access for special games
+			setGameData(prevState => ({
+				...prevState,
+				can_access: ["RaidShooter", "Space hazards & Asteroid Redirection Program", "Drop Ball", "Candy Pop Slots", "Car Chase", "Rogue Rebels"].includes(gameName),
+			}));
 		}
 	}, [isOpen, token, gameName]);
 
@@ -225,7 +231,7 @@ const GameCard = ({
 															fill="currentColor"
 															viewBox="0 0 20 20"
 														>
-															<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.905c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118l-3.974-2.888a1 1 0 00-1.175 0l-3.974 2.888c-.784.57-1.839-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.536 9.1c-.784-.57-.38-1.81.588-1.81h4.905a1 1 0 00.95-.69l1.518-4.674z" />
+															<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.905c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118l-3.974-2.888a1 1 0 00-1.175 0l-3.974 2.888c-.784.57-1.839-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.536 9.1c-.784-.57-.38-1.81.588-1.81h4.905a1 1 0 00.95-.69l1.518-4.674z" />
 														</svg>
 													</div>
 												</div>
@@ -251,20 +257,23 @@ const GameCard = ({
 												</div>
 											</div>
 
+											
 											{/* Subscribe Button */}
 											<Button
 												onClick={() => {
-													if (token) {
-														window.location.href = `${gameLink}?${encryptString(token, stringKey)}`;
+													if (token && gameData.can_access) {
+													window.location.href = `${gameLink}?${encryptString(token, stringKey)}`;
+													} else if (token) {
+													toast.error("Subscribe to have access.");
 													} else {
-														toast.error("Please login first to play");
+													toast.error("Please login first to play");
 													}
 												}}
-												className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px] h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE] mt-4 sm:mt-0"
-											>
-												{["Baccarat", "Sweet Sugar", "Sugar Rush", "Roulette", "Casino", "HyperWin Slots"].includes(gameName)
-													? "Subscribe To Play"
-													: "Play"}
+												className={`bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px] h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE] mt-4 sm:mt-0 ${
+													!gameData.can_access ? 'cursor-not-allowed' : ''
+												}`}
+												>
+												{!gameData.can_access ? "Subscribe To Play" : "Play"}
 											</Button>
 										</div>
 									</Card>
