@@ -38,6 +38,8 @@ import FinancialContent from "../modal-content/FinancialContent";
 import { useQuery } from "@tanstack/react-query";
 import { getMe } from "@/services";
 import ResetPasswordPhone from "../auth/ResePasswordPhone";
+import toast from "react-hot-toast";
+import Cookies from "js-cookie";
 
 type Props = {};
 
@@ -92,6 +94,13 @@ const Navbar = (props: Props) => {
     queryKey: ["user"],
     queryFn: getMe,
   });
+
+  function handleLogout() {
+    Cookies.remove("token");
+    //toast.success("You have successfully logged out.");
+    router.push("/"); // Redirect to the landing page
+    window.location.reload(); // Refresh the page
+  }
 
   return (
     <nav className="">
@@ -305,6 +314,13 @@ const Navbar = (props: Props) => {
                         <MinusIcon className="w-6 h-6 " />
                       </Button>
                     </div>
+					{/* Logout Button */}
+                    <Button
+                      onClick={handleLogout}
+                      className="uppercase text-xs text-white font-NunitoSans font-bold bg-red-500 rounded-full w-full h-[32px] border border-[#F002EE] hover:bg-red-900"
+                    >
+                      Logout
+                    </Button>
                   </div>
                 </div>
               </PopoverContent>
