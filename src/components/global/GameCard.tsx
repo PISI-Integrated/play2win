@@ -63,7 +63,7 @@ const GameCard = ({
       case "Rogue Rebels":
 		return "rogue_rebels";
       case "Car Chase":
-        return null;
+        return "car_chase";
       case "Baccarat Slots":
         return "baccarat";
       case "Roulette":
