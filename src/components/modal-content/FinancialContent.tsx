@@ -48,9 +48,9 @@ const FinancialContent = (props: Props) => {
 	};
 
 	return (
-		<div>
-			<Tabs defaultValue="account" className="w-[400px]">
-				<TabsList>
+		<div className="w-full px-4 md:px-0"> 
+			<Tabs defaultValue="account" className="md:max-w-lg w-full mx-auto lg:w-[400px]"> 
+				<TabsList className="flex justify-center"> 
 					<TabsTrigger className="rounded-l-[20px]" value="fund">
 						Add money
 					</TabsTrigger>
@@ -128,7 +128,6 @@ const FinancialContent = (props: Props) => {
 										Casino 200
 									</Button>
 
-								
 									<Button
 										onClick={() =>
 											window.location.href =
@@ -191,7 +190,6 @@ const FinancialContent = (props: Props) => {
 					</div>
 				</TabsContent>
 			</Tabs>
-			{/* End of Tabs */}
 		</div>
 	);
 };
