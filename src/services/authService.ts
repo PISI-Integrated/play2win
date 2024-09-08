@@ -212,8 +212,12 @@ try {
 
 	// After successfully fetching the data, check if country exists
 	if (data?.data?.country) {
-	Cookies.set("country", data?.data?.country);
-	}
+		// Capitalize the first letter and make the rest lowercase
+		const country = data.data.country.charAt(0).toUpperCase() + data.data.country.slice(1).toLowerCase();
+		
+		Cookies.set("country", country);
+	  }
+	  
 
 	return data?.data;
 } catch (error) {
