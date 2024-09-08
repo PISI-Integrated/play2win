@@ -59,7 +59,7 @@ const GameCard = ({
       case "HyperWin Slots":
         return "hyperwin_slots";
       case "Candy Pop":
-		return "candyPopSlots";
+		return "candy_pop";
       case "Rogue Rebels":
 		return "rogue_rebels";
       case "Car Chase":
