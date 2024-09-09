@@ -479,7 +479,7 @@ const Navbar = (props: Props) => {
                             <h1 className="text-[32px] text-white font-NunitoSans font-semibold">
                               Enter OTP
                             </h1>
-                            <XIcon className="flex md:hidden text-white" />
+                            <XIcon onClick={closeModal3} className="flex md:hidden text-white" />
                           </div>
                         </Dialog.Title>
                         <VerifyOTP
