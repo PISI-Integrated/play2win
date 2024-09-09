@@ -36,14 +36,25 @@ const SignUpContent = ({ action, switchToSignIn }: Props) => {
     onSuccess: ({ success, message }) => {
       if (success) {
         action();
-        toast.success(message);
+        toast.success(message, {
+          style: {
+            zIndex: 9999, // Ensure the toast is above other elements
+          },
+        });
       } else {
-        toast.error(message);
+        toast.error(message, {
+          style: {
+            zIndex: 9999, // Ensure the toast is above other elements
+          },
+        });
       }
     },
     onError: (error: any) => {
-      // Display the error message thrown in the signUp function
-      toast.error(error.message || "Failed to sign up");
+      toast.error(error.message || "Failed to sign up", {
+        style: {
+          zIndex: 9999, // Ensure the toast is above other elements
+        },
+      });
     },
   });
 
