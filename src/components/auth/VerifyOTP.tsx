@@ -26,15 +26,27 @@ const VerifyOTP = ({ handlerFunc, action }: Props) => {
 		onSuccess: ({ success, message }) => {
 			if (success === true) {
 				startCounter();
-				toast.success(message);
+				toast.success(message, {
+					style: {
+						zIndex: 9999
+					}
+				});
 			} else {
-				toast.error(message);
+				toast.error(message, {
+					style: {
+						zIndex: 9999
+					}
+				});
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
 		},
 		onError: ({ message }) => {
-			toast.error(message);
+			toast.error(message, {
+				style: {
+					zIndex: 9999
+				}
+			});
 		},
 	});
 
@@ -43,15 +55,27 @@ const VerifyOTP = ({ handlerFunc, action }: Props) => {
 		onSuccess: ({ success, message }) => {
 			if (success === true) {
 				action();
-				toast.success(message);
+				toast.success(message, {
+					style: {
+						zIndex: 9999
+					}
+				});
 			} else {
-				toast.error(message);
+				toast.error(message, {
+					style: {
+						zIndex: 9999
+					}
+				});
 			}
 			// Invalidate and refetch
 			//   queryClient.invalidateQueries({ queryKey: ['todos'] })
 		},
 		onError: ({ message }) => {
-			toast.error(message);
+			toast.error(message, {
+				style: {
+					zIndex: 9999
+				}
+			});
 		},
 	});
 
