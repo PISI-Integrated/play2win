@@ -189,6 +189,7 @@ const FinancialContent = (props: Props) => {
 									Bank
 								</Label>
 								<select
+									title="banks"
 									name="banks"
 									id="banks"
 									className="flex h-10 w-full rounded-[100px] border bg-primary text-white px-3 py-2 text-sm"
