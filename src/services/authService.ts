@@ -25,7 +25,8 @@ export const signUp = async (payload: TSignUp) => {
 		  console.log("Status text part:", axiosError.response.statusText);
   
 		  // Try multiple paths for extracting the error message
-		  const errorMessage = axiosError.response.data?.message || 
+		  const errorMessage = axiosError?.response?.data?.message || 
+		  					   axiosError?.response?.data?.detail || 
 							   axiosError.response.data?.error?.message || 
 							   axiosError.response.data?.error_description ||
 							   axiosError.response.statusText || 
@@ -89,7 +90,9 @@ export const verifyOtp = async (payload: TVerifyOtp) => {
 			const axiosError = error;
 			if (axiosError.response) {
 				// Accessing the error message from the response data
-				const errorMessage = axiosError?.response?.data?.message;
+				const errorMessage = axiosError?.response?.data?.message ||
+									 axiosError?.response?.data?.detail || 
+									 "Something went wrong";
 				// toast(errorMessage, {
 				// 	// description: "Sunday, December 03, 2023 at 9:00 AM",
 				// 	action: {
@@ -97,7 +100,7 @@ export const verifyOtp = async (payload: TVerifyOtp) => {
 				// 		onClick: () => console.log("Undo"),
 				// 	},
 				// });
-				return axiosError?.response?.data;
+				throw new Error(errorMessage);
 			}
 		}
 		// Handle other errors
@@ -180,15 +183,19 @@ export const resendCode = async (payload: TResendCode) => {
 			const axiosError = error;
 			if (axiosError.response) {
 				// Accessing the error message from the response data
-				const errorMessage = axiosError?.response?.data?.message;
-				// toast(errorMessage, {
+				const errorMessage = axiosError?.response?.data?.message || 
+									axiosError?.response?.data?.detail || 
+									axiosError.response.data?.error?.message || 
+									axiosError.response.data?.error_description ||
+									axiosError.response.statusText || 
+									"Something went wrong";
 				// 	// description: "Sunday, December 03, 2023 at 9:00 AM",
 				// 	action: {
 				// 		label: "Undo",
 				// 		onClick: () => console.log("Undo"),
 				// 	},
 				// });
-				return axiosError?.response?.data;
+				throw new Error(errorMessage);
 			}
 		}
 		// Handle other errors
@@ -197,19 +204,31 @@ export const resendCode = async (payload: TResendCode) => {
 	}
 };
 
+
+
 export async function getMe() {
-	try {
-		const { data } = await axios.get(
-			`${process.env.NEXT_PUBLIC_URL}/users/me`,
-			{
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}
-		);
-		return data?.data;
-	} catch (error) {
-		console.log(error);
-		throw error;
+try {
+	const { data } = await axios.get(
+	`${process.env.NEXT_PUBLIC_URL}/users/me`,
+	{
+		headers: {
+		Authorization: `Bearer ${token}`,
+		},
 	}
+	);
+
+	// After successfully fetching the data, check if country exists
+	if (data?.data?.country) {
+		// Capitalize the first letter and make the rest lowercase
+		const country = data.data.country.charAt(0).toUpperCase() + data.data.country.slice(1).toLowerCase();
+		
+		Cookies.set("country", country);
+	  }
+	  
+
+	return data?.data;
+} catch (error) {
+	console.log(error);
+	throw error;
+}
 }
