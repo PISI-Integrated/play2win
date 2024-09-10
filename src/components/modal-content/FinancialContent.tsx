@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { PaystackButton } from "react-paystack";
-import Withdrawal from "./Withdrawal";
+import Debit from "./Debit";
 
 type Props = {};
 
@@ -146,7 +146,7 @@ const FinancialContent = (props: Props) => {
 
 				{/* Withdrawal Tab */}
 				<TabsContent value="withdraw">
-					<Withdrawal />
+					<Debit />
 				</TabsContent>
 			</Tabs>
 		</div>
