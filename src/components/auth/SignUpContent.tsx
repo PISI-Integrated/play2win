@@ -76,8 +76,16 @@ const SignUpContent = ({ action, switchToSignIn }: Props) => {
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState<boolean>(true);
 
+  const modalStyle: React.CSSProperties = {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1000, // Ensure this is lower than the toast's z-index
+  };
+
   return (
-    <div>
+    <div >
       <div className="grid gap-4 py-4">
         <div className="flex flex-col gap-3">
           <Label htmlFor="phone_number" className="text-white">

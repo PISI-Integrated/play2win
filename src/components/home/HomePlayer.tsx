@@ -223,7 +223,7 @@ const HomePlayer = (props: Props) => {
 											</div>
 
 											<div className="flex justify-between items-center px-4  py-6 ">
-												<h1 className="text-white text-[32px]">₦100</h1>
+												<h1 className="text-white text-[32px]">FREE</h1>
 												<Button
 													onClick={() => {
 														if (token) {
@@ -237,7 +237,7 @@ const HomePlayer = (props: Props) => {
 													}}
 													className="bg-[#E903E733] rounded-[100px] w-auto lg:w-[171px]  h-[36px] px-6 text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
 												>
-													Subscribe to play
+													Play
 												</Button>
 											</div>
 										</CardContent>
