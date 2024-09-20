@@ -61,7 +61,12 @@ export const signIn = async (formData: FormData) => {
 			const axiosError = error;
 			if (axiosError.response) {
 				// Accessing the error message from the response data
-				const errorMessage = axiosError?.response?.data?.message;
+				const errorMessage = axiosError?.response?.data?.message || 
+				axiosError?.response?.data?.detail || 
+				axiosError.response.data?.error?.message || 
+				axiosError.response.data?.error_description ||
+				axiosError.response.statusText || 
+				"Failed to sign in";
 				// toast(errorMessage, {
 				// 	// description: "Sunday, December 03, 2023 at 9:00 AM",
 				// 	action: {
@@ -69,7 +74,9 @@ export const signIn = async (formData: FormData) => {
 				// 		onClick: () => console.log("Undo"),
 				// 	},
 				// });
-				return axiosError?.response?.data;
+
+				// Throw the extracted error message
+				throw new Error(errorMessage);
 			}
 		}
 		// Handle other errors

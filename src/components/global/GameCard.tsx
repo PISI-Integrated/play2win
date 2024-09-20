@@ -146,6 +146,23 @@ const GameCard = ({
     }
   };
 
+  const getGameService = (gameName: string) => {
+    switch (gameName) {
+      case "Sweet Sugar":
+        return "DPLAY";
+      case "Casino":
+        return "CASINO";
+      case "Roulette":
+        return "DROPB";
+      case "Baccarat":
+        return "RSHOOT";
+      case "HyperWin Slots":
+        return "SHARP";
+      default:
+        return ""; // If game not found in the list, default will handle it as "Play"
+    }
+  };
+
   return (
     <main>
       <Card className="card-gradient hover:border-[#f002ee] w-[340px] md:w-[429px] h-[218px]">
@@ -177,7 +194,7 @@ const GameCard = ({
                 onClick={openModal}
                 className="bg-[#E903E733] rounded-[100px] w-[111px] h-[36px] text-white text-[10px] uppercase font-semibold font-Montserrat border border-[#F002EE]"
               >
-                Play
+                {getGameService(gameName) ? `Play ${getGameService(gameName)}` : "Play"}
               </Button>
             </div>
           </div>

@@ -328,7 +328,7 @@ const Navbar = (props: Props) => {
 
             {!data ? (
               <>
-			  	<Button
+			  	      <Button
                   onClick={openModal2}
                   className=" uppercase primary-color rounded-full ml-2"
                 >
